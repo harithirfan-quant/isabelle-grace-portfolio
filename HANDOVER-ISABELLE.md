@@ -3,15 +3,15 @@
 Send these to Harith; each maps to a specific place in the site. Until each
 item lands, the site shows clean pink placeholders, which is intentional.
 
-## 1. Photos (highest priority — currently a pink "IG" monogram stands in)
+## 1. Photos (high priority — photo added, ambassador months filled)
 
-| Item | Where it goes |
+| Item | Status |
 |---|---|
-| **Her photo** (headshot or 4:5 portrait, 1–2 MB, JPG/PNG) | `public/` → set `personal.photo` + `about.photo` in `content/portfolio.ts` |
-| **Bintulu Port logo** (square PNG, transparent, ≥128 px) | `public/logos/` → `aiInternship.companyLogo` + `experience[0].logo` |
-| **MyNext month photos** (Nov 2025 PICC, Dec talk, Mar, Apr sessions) | `public/ambassador/` → `ambassador.months[].photos` |
-| **Jul 25 session poster/screenshot** | Ambassador Jul 2026 card + timeline + projects image |
-| **Scholarship award photo/letter scan** | Press card image + timeline |
+| **Her photo** (headshot) | ✅ DONE — `public/isabelle-photo.jpg` wired to hero + about (swap file anytime to update) |
+| **MyNext month photos** (Nov PICC, Dec talk, Mar, Apr, Jul flyer) | ✅ DONE — copied from Harith's site to `public/ambassador/`, wired to all 5 month cards |
+| **Bintulu Port logo** (square PNG, transparent, ≥128 px) | ⬜ PENDING → `public/logos/` → `aiInternship.companyLogo` + `experience[0].logo` |
+| **Jul 25 session poster/screenshot** | ✅ DONE — official flyer is the Jul 2026 card image |
+| **Scholarship award photo/letter scan** | ⬜ PENDING → press card image + timeline |
 
 ## 2. Resume (currently hidden everywhere on purpose)
 

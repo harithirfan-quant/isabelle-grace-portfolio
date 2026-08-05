@@ -46,7 +46,7 @@ export const personal = {
   ],
   gpa: "3.80 / 4.00",
   deansAward: "Dean's Award Recipient: 3.95 GPA (Sem 1, 2025)",
-  photo: "",
+  photo: "/isabelle-photo.jpg",
   photoCrop: { top: 0, left: 0, scale: 100 },
   hero: {
     url: "",
@@ -136,7 +136,7 @@ export const hero = {
  * ======================================================================== */
 
 export const about = {
-  photo: "",
+  photo: "/isabelle-photo.jpg",
   photoCrop: { top: 0, left: 0, scale: 100 },
   gpa: "3.80 / 4.00",
   gpaLabel: "CGPA",
@@ -572,7 +572,7 @@ export const ambassador = {
     {
       month: "Nov 2025",
       title: "Internship Market Week",
-      highlight: "",
+      highlight: "/ambassador/nov-2025.jpg",
       participants: 5000,
       signups: 3000,
       photos: [],
@@ -585,7 +585,7 @@ export const ambassador = {
     {
       month: "Dec 2025",
       title: "New Year, New Me. Transform! (MyNext Virtual Talk)",
-      highlight: "",
+      highlight: "/ambassador/dec-2025.jpg",
       participants: 65,
       signups: 65,
       photos: [],
@@ -598,7 +598,7 @@ export const ambassador = {
     {
       month: "Mar 2026",
       title: "Career Accelerator: Master Your Pitch & Profile",
-      highlight: "",
+      highlight: "/ambassador/march-2026.jpg",
       participants: 50,
       signups: 50,
       photos: [],
@@ -610,7 +610,7 @@ export const ambassador = {
     {
       month: "Apr 2026",
       title: "Career Realities & MyNext Platform Benefits",
-      highlight: "",
+      highlight: "/ambassador/apr-2026.jpg",
       participants: 460,
       signups: 460,
       photos: [],
@@ -622,7 +622,7 @@ export const ambassador = {
     {
       month: "Jul 2026",
       title: "Personal Branding: Soft Launch Your Career ft. LinkedIn",
-      highlight: "",
+      highlight: "/ambassador/jul-2026.jpg",
       participants: 0,
       signups: 0,
       photos: [],
