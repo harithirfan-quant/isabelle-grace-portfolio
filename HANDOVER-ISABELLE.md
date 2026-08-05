@@ -45,6 +45,17 @@ Please confirm each is true, and send credential URLs/IDs if she wants them show
 - Education highlights (currently "Microsoft Excel", "Analytical Skills")
 - Her preferred tagline tweaks once she reads it live
 
+## 6. Team projects (copied from Harith's portfolio — confirm credits)
+
+The Projects section now shows the shared team work: **Trajectory** and
+**SuriaSnap** (featured hero cards with live demos + landing screenshots) and
+case studies for both, plus **Bank Islam GoExplore Program** and **The Leaders
+Challenge**. They're written in team voice ("we", "our team") since these are
+joint projects. Confirm with Isabelle what her actual role was in each
+(especially SuriaSnap and GoExplore, which were originally documented as
+individual efforts) and adjust the `role` field + overview in
+`content/case-studies.ts` if her part differs.
+
 ## How to land the domain (Aug 7, after purchase)
 
 1. Vercel → project `isabelle-grace-portfolio` → Domains → add `isabelle.hietech.my`

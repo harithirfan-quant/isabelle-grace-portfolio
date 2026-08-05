@@ -533,6 +533,26 @@ export const certifications: Certification[] = [
 
 export const projects = [
   {
+    title: "Trajectory",
+    description:
+      "Career intelligence platform: real career paths from starting role to exit, salaries shown upfront, and reports families can read in their own language.",
+    url: "https://trajectory-bice.vercel.app",
+    repo: null,
+    tags: ["React", "Vercel", "Career Tech", "Product"],
+    image: "/projects/trajectory-landing.jpg",
+    featured: true,
+  },
+  {
+    title: "SuriaSnap",
+    description:
+      "Solar savings calculator for Malaysian homes. Enter your roof, get a realistic system size, cost, and payback in minutes, with verified installers from the SEDA registry.",
+    url: "https://suriasnap.vercel.app",
+    repo: "https://github.com/harithirfan-quant/suriasnap-frontend",
+    tags: ["React", "Tailwind", "Solar", "Frontend"],
+    image: "/projects/suriasnap-landing.jpg",
+    featured: true,
+  },
+  {
     title: "Personal Branding: Soft Launch Your Career",
     description:
       "Co-hosted a virtual career development session for MyNext, guiding students through LinkedIn profile building, personal branding strategy, and career launch readiness.",
@@ -542,7 +562,7 @@ export const projects = [
     repo: null,
     tags: ["Career Development", "Event Management", "LinkedIn"],
     image: "",
-    featured: false,
+    featured: true,
   },
 ];
 
