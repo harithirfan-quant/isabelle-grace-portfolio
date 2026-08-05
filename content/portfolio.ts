@@ -68,6 +68,9 @@ export const socials = {
 export const resume = {
   file: "/resume.pdf",
   lastUpdated: "August 2026",
+  // False until Isabelle sends her actual resume PDF. Hides every Resume
+  // button and the "Resume updated" captions across the site.
+  available: false,
 };
 
 export const navItems = [
@@ -168,7 +171,7 @@ export const about = {
     "Compliance Documentation",
   ],
   actionButtons: {
-    resume: true,
+    resume: false,
     linkedin: true,
   },
   linkedinUrl: "https://www.linkedin.com/in/isabelle-grace-8a9749390/",
@@ -212,7 +215,7 @@ export const experience = [
  * ======================================================================== */
 
 export const aiInternship = {
-  role: "Trainee, Learning & Development",
+  role: "Trainee in Learning & Development",
   company: "Bintulu Port Holdings Berhad",
   companyLogo: "",
   blurb:
@@ -281,7 +284,9 @@ export const press: PressMention[] = [
     title: "Co-Hosted: Personal Branding ft. LinkedIn",
     event: "MyNext Ambassador Programme",
     date: "Jul 2026",
-    url: "https://www.instagram.com/harith11975/p/DbKNm83j05f/",
+    // Link pending: the fork pointed at a co-host's personal Instagram post.
+    // Ask Isabelle for her own post link, or the official MyNext coverage.
+    url: "",
     type: "instagram" as const,
   },
   {
@@ -291,15 +296,6 @@ export const press: PressMention[] = [
     date: "2025",
     url: "",
     type: "web" as const,
-  },
-  {
-    outlet: "Universiti Malaysia Perlis",
-    title:
-      "Congratulations to UniMAP student on Malaysian Leaders of Tomorrow Challenge success",
-    event: "Malaysian Leaders of Tomorrow Challenge",
-    date: "Feb 2026",
-    url: "https://www.unimap.edu.my/berita/2026/02/tahniah-pelajar-unimap-atas-kejayaan-malaysian-leaders-tomorrow-challenge/",
-    type: "news" as const,
   },
 ];
 
@@ -540,7 +536,9 @@ export const projects = [
     title: "Personal Branding: Soft Launch Your Career",
     description:
       "Co-hosted a virtual career development session for MyNext, guiding students through LinkedIn profile building, personal branding strategy, and career launch readiness.",
-    url: "https://www.instagram.com/harith11975/p/DbKNm83j05f/",
+    // Link pending: the fork pointed at a co-host's personal Instagram post.
+    // Ask Isabelle for her own post link once it exists.
+    url: "",
     repo: null,
     tags: ["Career Development", "Event Management", "LinkedIn"],
     image: "",

@@ -19,7 +19,7 @@ export async function generateMetadata({
   const cs = getCaseStudy(params.slug);
   if (!cs) return {};
   return {
-    title: `${cs.title}, Case Study | Harith Irfan`,
+    title: `${cs.title}, Case Study | ${site.metaTitle}`,
     description: cs.subtitle,
     alternates: { canonical: `${site.url}/case-studies/${cs.slug}` },
     openGraph: {

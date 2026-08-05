@@ -7,12 +7,12 @@ import { site } from "@/content/portfolio";
 export const metadata: Metadata = {
   title: `Blog & Insights | ${site.metaTitle}`,
   description:
-    "Reflections on strategy, leadership, and project work from an International Business student at UniMAP.",
+    "Notes from training at Bintulu Port, MyNext ambassador sessions, and building a career in people operations.",
   alternates: { canonical: `${site.url}/blog` },
   openGraph: {
-    title: "Blog & Insights | Harith Irfan",
+    title: `Blog & Insights | ${site.metaTitle}`,
     description:
-      "Reflections on strategy, leadership, and project work from an International Business student at UniMAP.",
+      "Notes from training at Bintulu Port, MyNext ambassador sessions, and building a career in people operations.",
     url: `${site.url}/blog`,
     type: "website",
   },
@@ -39,8 +39,9 @@ export default function BlogPage() {
           Blog &amp; Insights
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-          Reflections on strategy, leadership, and what I&apos;ve learned from running programs,
-          competitions, and projects as a business student. Honest and practical.
+          Notes from training at Bintulu Port, co-hosting MyNext ambassador
+          sessions, and figuring out a career in people operations. Honest and
+          practical.
         </p>
       </div>
 

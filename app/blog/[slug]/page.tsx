@@ -18,7 +18,7 @@ export async function generateMetadata({
   const post = getBlogPost(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Harith Irfan`,
+    title: `${post.title} | ${site.metaTitle}`,
     description: post.excerpt,
     alternates: { canonical: `${site.url}/blog/${post.slug}` },
     openGraph: {
