@@ -1,11 +1,17 @@
 import { ImageResponse } from "next/og";
 import { personal, hero, site } from "@/content/portfolio";
 
-// Dynamic Open Graph image (1200x630). TIP: Use 1200x630 images for OG previews.
+// Dynamic Open Graph image (1200x630) in the site's Swiss pink style.
+// Text-only monogram lockup: no photo needed until Isabelle sends one.
 export const runtime = "edge";
 export const alt = `${personal.preferredName} Portfolio`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const PINK = "#E8306E"; // hsl(340 80% 55%), matches globals.css --accent (light)
+const INK = "#141414"; // hsl(0 0% 8%), matches --foreground (light)
+const DARK = "#121212"; // matches dark --background
+const MUTED = "#8f8f8f";
 
 export default function OGImage() {
   return new ImageResponse(
@@ -16,58 +22,114 @@ export default function OGImage() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "80px",
-          // Matches the site's dark theme (--background: 220 28% 14%).
-          // Keep in sync with app/globals.css and the layout theme-color.
-          background: "linear-gradient(135deg, #1a2032 0%, #243052 100%)",
-          color: "white",
+          justifyContent: "space-between",
+          padding: "72px 80px",
+          background: DARK,
+          color: "#ffffff",
           fontFamily: "sans-serif",
+          border: `8px solid ${PINK}`,
         }}
       >
+        {/* Top row: monogram + location */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
-            color: "#f59e0b",
-            fontSize: 28,
-            fontWeight: 600,
+            justifyContent: "space-between",
           }}
         >
           <div
             style={{
-              width: 14,
-              height: 14,
-              borderRadius: 999,
-              background: "#f59e0b",
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+              color: PINK,
+              fontSize: 28,
+              fontWeight: 700,
+              letterSpacing: "0.1em",
             }}
-          />
-          Open to Internships · {personal.location}
+          >
+            <div style={{ width: 16, height: 16, background: PINK }} />
+            IG · {personal.location}
+          </div>
+          <div
+            style={{
+              fontSize: 22,
+              color: MUTED,
+              fontFamily: "monospace",
+              letterSpacing: "0.15em",
+            }}
+          >
+            PORTFOLIO
+          </div>
         </div>
+
+        {/* Monogram */}
         <div
           style={{
-            fontSize: 96,
-            fontWeight: 800,
-            marginTop: 24,
-            color: "#f59e0b",
-          }}
-        >
-          {personal.preferredName}
-        </div>
-        <div style={{ fontSize: 38, marginTop: 12, color: "#e2e8f0" }}>
-          {site.ogTagline || personal.title}
-        </div>
-        <div
-          style={{
-            fontSize: 26,
-            marginTop: 32,
-            color: "#94a3b8",
             display: "flex",
-            gap: 24,
+            alignItems: "center",
+            gap: 40,
           }}
         >
-          {hero.socialProof.join("  ·  ")}
+          <div
+            style={{
+              width: 148,
+              height: 148,
+              background: PINK,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 72,
+              fontWeight: 800,
+              color: "#ffffff",
+            }}
+          >
+            IG
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 88,
+                fontWeight: 800,
+                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                lineHeight: 1,
+              }}
+            >
+              {personal.preferredName}
+              <span style={{ color: PINK }}>.</span>
+            </div>
+            <div style={{ fontSize: 34, marginTop: 14, color: "#d9d9d9" }}>
+              {site.ogTagline || personal.title}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom strip: social proof */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 20,
+            fontSize: 24,
+            color: MUTED,
+          }}
+        >
+          {hero.socialProof.map((item, i) => (
+            <div
+              key={item}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 20,
+              }}
+            >
+              {i > 0 && <span style={{ color: PINK }}>{"//"}</span>}
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
       </div>
     ),

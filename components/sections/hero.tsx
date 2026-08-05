@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
 import { hero, personal, resume } from "@/content/portfolio";
 import { openResume, scrollToSection } from "@/lib/actions";
 
@@ -83,10 +84,12 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              <Button variant="default" size="lg" onClick={openResume}>
-                <Download className="h-5 w-5" />
-                Resume
-              </Button>
+              {resume.available && (
+                <Button variant="default" size="lg" onClick={openResume}>
+                  <Download className="h-5 w-5" />
+                  Resume
+                </Button>
+              )}
               <Button
                 variant="outline"
                 size="lg"
@@ -96,13 +99,15 @@ export function Hero() {
                 View Experience
               </Button>
             </motion.div>
-            <motion.p
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-4 font-mono text-xs text-muted-foreground"
-            >
-              Resume updated {resume.lastUpdated}
-            </motion.p>
+            {resume.available && (
+              <motion.p
+                {...fadeUp}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="mt-4 font-mono text-xs text-muted-foreground"
+              >
+                Resume updated {resume.lastUpdated}
+              </motion.p>
+            )}
           </div>
 
           {/* Portrait */}
@@ -114,16 +119,21 @@ export function Hero() {
           >
             <div className="border-2 border-foreground bg-secondary shadow-hard-accent">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                {/* EDIT THIS: your photo lives at /public/avatar.jpg.
-                   To swap it, just replace that file (keep the same name). */}
-                <Image
-                  src="/avatar.jpg"
-                  alt={personal.preferredName}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 384px"
-                  className="object-cover grayscale-[15%]"
-                />
+                {/* EDIT THIS: set personal.photo in content/portfolio.ts to
+                    your photo (or drop it in /public and reference it there).
+                    Until then, a pink monogram placeholder renders instead. */}
+                {personal.photo ? (
+                  <Image
+                    src={personal.photo}
+                    alt={personal.preferredName}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 384px"
+                    className="object-cover grayscale-[15%]"
+                  />
+                ) : (
+                  <PhotoPlaceholder />
+                )}
               </div>
             </div>
 

@@ -5,7 +5,8 @@ import { Download, Linkedin, Instagram, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { about, personal } from "@/content/portfolio";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
+import { about, personal, resume } from "@/content/portfolio";
 import { links, openExternal, openResume } from "@/lib/actions";
 
 export function About() {
@@ -23,16 +24,21 @@ export function About() {
         <Reveal className="lg:sticky lg:top-24">
           <div className="border-2 border-foreground bg-secondary shadow-hard">
             <div className="relative aspect-[4/5] w-full overflow-hidden">
-              {/* EDIT THIS: your photo lives at /public/avatar.jpg.
-                 To swap it, just replace that file (keep the same name). */}
-              <Image
-                src="/avatar.jpg"
-                alt={personal.preferredName}
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 384px"
-                className="object-cover"
-              />
+              {/* EDIT THIS: set personal.photo in content/portfolio.ts to
+                 your photo (or drop it in /public and reference it there).
+                 Until then, a pink monogram placeholder renders instead. */}
+              {about.photo ? (
+                <Image
+                  src={about.photo}
+                  alt={personal.preferredName}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 384px"
+                  className="object-cover"
+                />
+              ) : (
+                <PhotoPlaceholder />
+              )}
             </div>
           </div>
           <div className="mt-4 grid grid-cols-2 border-2 border-foreground font-mono">
@@ -105,10 +111,12 @@ export function About() {
 
           {/* CTA row */}
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button variant="default" onClick={openResume}>
-              <Download className="h-4 w-4" />
-              Resume
-            </Button>
+            {resume.available && (
+              <Button variant="default" onClick={openResume}>
+                <Download className="h-4 w-4" />
+                Resume
+              </Button>
+            )}
             <Button variant="outline" onClick={() => openExternal(links.linkedin)}>
               <Linkedin className="h-4 w-4" />
               LinkedIn

@@ -71,15 +71,17 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
-          <Button
-            variant="default"
-            size="sm"
-            className="hidden sm:inline-flex"
-            onClick={openResume}
-          >
-            <Download className="h-4 w-4" />
-            <span className="hidden md:inline">Resume</span>
-          </Button>
+          {resume.available && (
+            <Button
+              variant="default"
+              size="sm"
+              className="hidden sm:inline-flex"
+              onClick={openResume}
+            >
+              <Download className="h-4 w-4" />
+              <span className="hidden md:inline">Resume</span>
+            </Button>
+          )}
 
           {/* Mobile menu */}
           <Sheet>
@@ -119,13 +121,21 @@ export function Navbar() {
                 </SheetClose>
               </div>
               <div className="mt-6 space-y-3 border-t-2 border-foreground/15 pt-6">
-                <Button variant="default" className="w-full" onClick={openResume}>
-                  <Download className="h-4 w-4" />
-                  Resume
-                </Button>
-                <p className="text-center font-mono text-xs text-muted-foreground">
-                  Updated {resume.lastUpdated}
-                </p>
+                {resume.available && (
+                  <>
+                    <Button
+                      variant="default"
+                      className="w-full"
+                      onClick={openResume}
+                    >
+                      <Download className="h-4 w-4" />
+                      Resume
+                    </Button>
+                    <p className="text-center font-mono text-xs text-muted-foreground">
+                      Updated {resume.lastUpdated}
+                    </p>
+                  </>
+                )}
               </div>
             </SheetContent>
           </Sheet>

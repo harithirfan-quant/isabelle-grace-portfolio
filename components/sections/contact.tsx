@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { contact, personal } from "@/content/portfolio";
+import { contact, personal, resume } from "@/content/portfolio";
 import { links, openExternal, openResume } from "@/lib/actions";
 
 function SocialCard({
@@ -176,10 +176,12 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <Button variant="default" className="w-full" onClick={openResume}>
-              <Download className="h-4 w-4" />
-              Download Latest Resume
-            </Button>
+            {resume.available && (
+              <Button variant="default" className="w-full" onClick={openResume}>
+                <Download className="h-4 w-4" />
+                Download Latest Resume
+              </Button>
+            )}
           </Reveal>
         </div>
 

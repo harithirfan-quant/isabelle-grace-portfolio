@@ -67,13 +67,15 @@ export function Experience() {
       </div>
 
       <Reveal className="mt-12 text-center">
-        <button
-          onClick={openResume}
-          className="inline-flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-accent underline-offset-4 hover:underline"
-        >
-          <FileText className="h-4 w-4" />
-          Full resume, updated {resume.lastUpdated}
-        </button>
+        {resume.available && (
+          <button
+            onClick={openResume}
+            className="inline-flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-accent underline-offset-4 hover:underline"
+          >
+            <FileText className="h-4 w-4" />
+            Full resume, updated {resume.lastUpdated}
+          </button>
+        )}
       </Reveal>
     </section>
   );

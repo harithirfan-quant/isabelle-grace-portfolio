@@ -13,7 +13,7 @@ export function Education() {
         index="08"
         eyebrow="Education"
         title="Academic foundation"
-        description="From law fundamentals to international business."
+        description="Bachelor of Business (International Business) at Universiti Malaysia Perlis."
       />
 
       {/* GPA / Dean's Award */}

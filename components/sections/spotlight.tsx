@@ -22,7 +22,7 @@ export function Spotlight() {
       <SectionHeading
         index="02"
         eyebrow="Currently"
-        title={`What I do as an ${aiInternship.role}`}
+        title={`What I do as ${aiInternship.role}`}
         description={aiInternship.blurb}
       />
 

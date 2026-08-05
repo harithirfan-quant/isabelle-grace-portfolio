@@ -14,8 +14,8 @@ import { LogoBadge } from "@/components/logo-badge";
 const CATEGORIES = [
   "All",
   "Google",
-  "Finance & Business",
   "Government",
+  "Scholarship",
   "Competitions",
 ] as const;
 
@@ -109,7 +109,7 @@ export function Certifications() {
           index="09"
           eyebrow="Credentials"
           title="Certifications & wins"
-          description="Verified credentials from Google, CFA, Coursera, and government programmes."
+          description="Verified credentials from Google, TalentCorp, Bintulu Port, and university programmes."
         />
       </div>
 

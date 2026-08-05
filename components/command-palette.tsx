@@ -15,7 +15,6 @@ import {
   Linkedin,
   Instagram,
   MoonStar,
-  ExternalLink,
   Lightbulb,
   Megaphone,
 } from "lucide-react";
@@ -28,7 +27,7 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command";
-import { navItems } from "@/content/portfolio";
+import { navItems, resume } from "@/content/portfolio";
 import { links, openExternal, openResume, scrollToSection } from "@/lib/actions";
 
 const sectionIcons: Record<string, React.ElementType> = {
@@ -97,13 +96,15 @@ export function CommandPalette() {
         </CommandGroup>
 
         <CommandGroup heading="Actions">
-          <CommandItem
-            value="Download Latest Resume"
-            onSelect={() => run(openResume)}
-          >
-            <Download />
-            <span>Download Latest Resume</span>
-          </CommandItem>
+          {resume.available && (
+            <CommandItem
+              value="Download Latest Resume"
+              onSelect={() => run(openResume)}
+            >
+              <Download />
+              <span>Download Latest Resume</span>
+            </CommandItem>
+          )}
           <CommandItem
             value="Connect on LinkedIn"
             onSelect={() => run(() => openExternal(links.linkedin))}
@@ -124,13 +125,6 @@ export function CommandPalette() {
           >
             <Mail />
             <span>Send Email</span>
-          </CommandItem>
-          <CommandItem
-            value="Visit Trajectory"
-            onSelect={() => run(() => openExternal(links.project))}
-          >
-            <ExternalLink />
-            <span>Visit Trajectory</span>
           </CommandItem>
           <CommandItem
             value="Toggle Dark Mode"

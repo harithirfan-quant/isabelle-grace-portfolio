@@ -26,38 +26,56 @@ function FeaturedProject({
   project: Project;
   caseStudy?: CaseStudy;
 }) {
+  const hasUrl = Boolean(project.url);
+
+  const preview = (
+    <div className="relative flex h-full w-full items-center justify-center">
+      {project.image ? (
+        <Image
+          src={project.image}
+          alt={`${project.title} landing page`}
+          fill
+          sizes="(max-width: 896px) 100vw, 896px"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+      ) : (
+        <span className="font-display text-5xl font-bold tracking-tight text-foreground/60 transition-colors group-hover:text-foreground sm:text-6xl">
+          {project.title}
+        </span>
+      )}
+    </div>
+  );
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
       className="group overflow-hidden border-2 border-foreground/15 bg-card transition-all hover:border-foreground hover:shadow-hard"
     >
-      {/* Preview, links straight to the live demo */}
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Open the ${project.title} live demo`}
-        className={`relative flex items-center justify-center overflow-hidden border-b-2 border-foreground/15 bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
-          project.image ? "aspect-[16/10]" : "aspect-[16/8]"
-        }`}
-      >
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={`${project.title} landing page`}
-            fill
-            sizes="(max-width: 896px) 100vw, 896px"
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        ) : (
-          <span className="font-display text-5xl font-bold tracking-tight text-foreground/60 transition-colors group-hover:text-foreground sm:text-6xl">
-            {project.title}
+      {/* Preview; links straight to the live demo when one exists */}
+      {hasUrl ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open the ${project.title} live demo`}
+          className={`relative flex items-center justify-center overflow-hidden border-b-2 border-foreground/15 bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+            project.image ? "aspect-[16/10]" : "aspect-[16/8]"
+          }`}
+        >
+          {preview}
+          <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center border-2 border-foreground bg-background text-foreground transition-transform group-hover:rotate-45">
+            <ArrowUpRight className="h-5 w-5" />
           </span>
-        )}
-        <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center border-2 border-foreground bg-background text-foreground transition-transform group-hover:rotate-45">
-          <ArrowUpRight className="h-5 w-5" />
-        </span>
-      </a>
+        </a>
+      ) : (
+        <div
+          className={`relative flex items-center justify-center overflow-hidden border-b-2 border-foreground/15 bg-secondary ${
+            project.image ? "aspect-[16/10]" : "aspect-[16/8]"
+          }`}
+        >
+          {preview}
+        </div>
+      )}
 
       <div className="p-6">
         <div className="flex items-center gap-3">
@@ -82,15 +100,17 @@ function FeaturedProject({
         </div>
 
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-widest text-accent hover:underline"
-          >
-            <ExternalLink className="h-4 w-4" />
-            Live Demo
-          </a>
+          {hasUrl && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-widest text-accent hover:underline"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Live Demo
+            </a>
+          )}
           {project.repo && (
             <a
               href={project.repo}

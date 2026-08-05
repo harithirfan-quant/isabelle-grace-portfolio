@@ -5,7 +5,6 @@ import {
   Linkedin,
   Instagram,
   Mail,
-  ExternalLink,
   ArrowUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -54,14 +53,6 @@ export function Footer() {
               >
                 <Mail className="h-5 w-5" />
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Trajectory"
-                onClick={() => openExternal(links.project)}
-              >
-                <ExternalLink className="h-5 w-5" />
-              </Button>
             </div>
           </div>
 
@@ -74,12 +65,14 @@ export function Footer() {
               >
                 Blog
               </Link>
-              <button
-                onClick={openResume}
-                className="font-mono text-xs uppercase tracking-widest text-accent transition-colors hover:underline"
-              >
-                Resume, updated {resume.lastUpdated}
-              </button>
+              {resume.available && (
+                <button
+                  onClick={openResume}
+                  className="font-mono text-xs uppercase tracking-widest text-accent transition-colors hover:underline"
+                >
+                  Resume, updated {resume.lastUpdated}
+                </button>
+              )}
               <Button
                 variant="outline"
                 size="icon"
@@ -97,7 +90,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {personal.fullName}
           </p>
-          <p>Resume updated {resume.lastUpdated}</p>
+          {resume.available && <p>Resume updated {resume.lastUpdated}</p>}
         </div>
       </div>
     </footer>
