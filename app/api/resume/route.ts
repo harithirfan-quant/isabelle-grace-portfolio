@@ -19,9 +19,9 @@ export async function GET() {
   return new NextResponse(file, {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="Harith-Irfan-Resume.pdf"',
+      "Content-Disposition": 'attachment; filename="Isabelle-Grace-Resume.pdf"',
       "Cache-Control": "no-store",
-      "X-Resume-Updated": "June 2026",
+      "X-Resume-Updated": "August 2026",
     },
   });
 }

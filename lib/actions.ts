@@ -10,12 +10,14 @@ export function scrollToSection(id: string) {
 
 /** Open the resume in a new tab AND trigger a download. */
 export function openResume() {
+  // No-op until a resume actually exists for Isabelle.
+  if (!resume.available) return;
   // open in a new tab
   window.open(resume.file, "_blank", "noopener,noreferrer");
   // also trigger a download
   const a = document.createElement("a");
   a.href = resume.file;
-  a.download = "Harith-Irfan-Resume.pdf";
+  a.download = "Isabelle-Grace-Resume.pdf";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -33,7 +35,7 @@ export const links = {
   scheduleMailto: `mailto:${personal.email}?subject=${encodeURIComponent(
     "Let's schedule a call"
   )}&body=${encodeURIComponent(
-    "Hi Harith,\n\nI'd love to schedule a call to discuss an opportunity.\n\nProposed times:\n- \n\nBest,\n"
+    "Hi Isabelle,\n\nI'd love to schedule a call to discuss an opportunity.\n\nProposed times:\n- \n\nBest,\n"
   )}`,
   // Uses the Calendly/booking URL from content if set, otherwise a prefilled email.
   schedule: contact.bookingUrl ?? "",
