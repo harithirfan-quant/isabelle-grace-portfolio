@@ -671,7 +671,7 @@ export const sectionNav = {
  * ======================================================================== */
 
 export const site = {
-  url: "https://isabellegrace.vercel.app",
+  url: "https://isabelle-grace-portfolio.vercel.app",
   metaTitle: "Isabelle Grace, International Business Student",
   ogTagline:
     "International Business Student | Open to Roles in Business, People Operations & L&D",
