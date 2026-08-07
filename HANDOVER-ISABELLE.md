@@ -56,9 +56,15 @@ joint projects. Confirm with Isabelle what her actual role was in each
 individual efforts) and adjust the `role` field + overview in
 `content/case-studies.ts` if her part differs.
 
-## How to land the domain (Aug 7, after purchase)
+## How to land the domain (Aug 7 — in progress)
 
-1. Vercel → project `isabelle-grace-portfolio` → Domains → add `isabelle.hietech.my`
-2. Point DNS as Vercel instructs (CNAME/ALIAS to `cname.vercel-dns.com`)
-3. In `content/portfolio.ts`, change `site.url` to `https://isabelle.hietech.my`
-4. Deploy: `npx vercel --prod --yes` from `~/Portfolios Projects`
+DONE (by Hermes):
+1. ✅ `hietech.my` added to Vercel (team `hietech`)
+2. ✅ `isabelle.hietech.my` attached to project `isabelle-grace-portfolio`
+3. ✅ `site.url` in `content/portfolio.ts` → `https://isabelle.hietech.my` (deployed)
+
+REMAINING — at the domain registrar (one DNS record):
+4. Add an **A record**: host `isabelle` → value `76.76.21.21`
+   (optionally also `@` → `76.76.21.21` for the apex hietech.my)
+5. Wait for propagation (minutes to ~24h), then https://isabelle.hietech.my serves the site.
+   Verification is automatic; Vercel emails when the cert is issued.
