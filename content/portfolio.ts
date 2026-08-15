@@ -575,7 +575,7 @@ export const projects = [
     title: "Trajectory",
     description:
       "Career intelligence platform: real career paths from starting role to exit, salaries shown upfront, and reports families can read in their own language.",
-    url: "https://trajectory-bice.vercel.app",
+    url: "https://trajectory.hietech.my",
     repo: null,
     tags: ["React", "Vercel", "Career Tech", "Product"],
     image: "/projects/trajectory-landing.jpg",
