@@ -585,7 +585,7 @@ export const projects = [
     title: "SuriaSnap",
     description:
       "Solar savings calculator for Malaysian homes. Enter your roof, get a realistic system size, cost, and payback in minutes, with verified installers from the SEDA registry. The team won Consolation Prize and Best Poster at SEDA's 2nd SIC 2026 during ISES 2026 at KLCC.",
-    url: "https://suriasnap.vercel.app",
+    url: "https://www.suriasnap.my",
     repo: "https://github.com/harithirfan-quant/suriasnap-frontend",
     tags: ["React", "Tailwind", "Solar", "Frontend"],
     image: "/projects/suriasnap-landing.jpg",
