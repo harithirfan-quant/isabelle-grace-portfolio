@@ -152,6 +152,7 @@ export const about = {
     "I'm looking for a role where I'm embedded where the work actually happens: sitting with the people who run operations, turning real challenges into action, and owning the outcome from first question to final deliverable. The settings I'm drawn to are high-stakes and human, where what you build touches actual people on actual teams.",
   ],
   milestones: [
+    "2nd SIC 2026: Consolation Prize + Best Poster (SEDA Innovation Challenge, Team HazyHorlick)",
     "Bintulu Port Scholar 2025: placed in L&D / HRM division",
     "TalentCorp MyNext Campus Ambassador 25/26: 3+ career events, virtual sessions",
     "Dean's Award Recipient: 3.95 GPA (Sem 1, 2025)",
@@ -345,6 +346,21 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
+    title: "2nd SIC 2026: Consolation Prize + Best Poster",
+    org: "SEDA Innovation Challenge @ ISES 2026",
+    date: "Aug 2026",
+    description:
+      "Part of Team HazyHorlick pitching SuriaSnap at the SEDA Innovation Challenge during the 7th International Sustainable Energy Summit at KLCC. The team took home the Consolation Prize in Category B (Build the Future, Prototype) and the Best Poster Award.",
+    image: "/achievements/sic2026-awards.jpg",
+    imageContain: true,
+    gallery: [
+      "/achievements/sic2026-booth.jpg",
+      "/achievements/sic2026-stage.jpg",
+      "/achievements/sic2026-pitch.jpg",
+      "/achievements/sic2026-demo.jpg",
+    ],
+  },
+  {
     title: "Co-Host: Personal Branding ft. LinkedIn",
     org: "MyNext by TalentCorp",
     date: "Jul 2026",
@@ -421,6 +437,20 @@ export const trophyCase: Trophy[] = [
     title: "1st Place: CoGLIEx 2023",
     issuer: "Universiti Teknologi MARA (50+ teams)",
     date: "2023",
+  },
+  {
+    icon: "Trophy",
+    title: "2nd SIC 2026: Consolation Prize (Category B)",
+    issuer: "SEDA / ISES 2026",
+    date: "Aug 2026",
+    image: "/achievements/sic2026-awards.jpg",
+    imageContain: true,
+  },
+  {
+    icon: "Medal",
+    title: "2nd SIC 2026: Best Poster Award",
+    issuer: "SEDA / ISES 2026",
+    date: "Aug 2026",
   },
 ];
 
@@ -518,6 +548,15 @@ export const certifications: Certification[] = [
   },
   // --- COMPETITIONS ---
   {
+    title: "2nd SIC 2026: Consolation Prize & Best Poster Award",
+    issuer: "SEDA Innovation Challenge",
+    date: "Aug 2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+    image: "/achievements/sic2026-awards.jpg",
+  },
+  {
     title: "1st Place: CoGLIEx 2023",
     issuer: "Universiti Teknologi MARA",
     date: "2023",
@@ -545,7 +584,7 @@ export const projects = [
   {
     title: "SuriaSnap",
     description:
-      "Solar savings calculator for Malaysian homes. Enter your roof, get a realistic system size, cost, and payback in minutes, with verified installers from the SEDA registry.",
+      "Solar savings calculator for Malaysian homes. Enter your roof, get a realistic system size, cost, and payback in minutes, with verified installers from the SEDA registry. The team won Consolation Prize and Best Poster at SEDA's 2nd SIC 2026 during ISES 2026 at KLCC.",
     url: "https://suriasnap.vercel.app",
     repo: "https://github.com/harithirfan-quant/suriasnap-frontend",
     tags: ["React", "Tailwind", "Solar", "Frontend"],
