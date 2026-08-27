@@ -548,6 +548,15 @@ export const certifications: Certification[] = [
   },
   // --- COMPETITIONS ---
   {
+    title: "MyDuitStory 6.0 Short Video Competition (Participation)",
+    issuer: "Financial Education Network (FEN)",
+    date: "2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+    image: "/achievements/certs/mds-2026.jpg",
+  },
+  {
     title: "2nd SIC 2026: Consolation Prize & Best Poster Award",
     issuer: "SEDA Innovation Challenge",
     date: "Aug 2026",
