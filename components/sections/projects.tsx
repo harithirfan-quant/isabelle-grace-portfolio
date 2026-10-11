@@ -144,8 +144,9 @@ export function Projects() {
   const featuredTitles = new Set(shown.map((p) => p.title));
 
   // Case studies that do not belong to a featured project show as small cards.
+  const hiddenFromProjects = new Set(["bank-islam-goexplore", "leaders-challenge"]);
   const otherCaseStudies = caseStudies.filter(
-    (cs) => !featuredTitles.has(cs.projectSlug)
+    (cs) => !featuredTitles.has(cs.projectSlug) && !hiddenFromProjects.has(cs.slug)
   );
 
   return (
