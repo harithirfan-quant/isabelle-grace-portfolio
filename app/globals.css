@@ -4,73 +4,73 @@
 
 /*
  * ===========================================================================
- *  SWISS BOLD THEME
- *  Stark white / near-black ink / soft pink. One accent, hairline
- *  rules, hard edges, mono labels. No gradients, no glows, no blur.
- * ============================================================================
+ *  BLUSH DESKTOP THEME
+ *  Blush paper / plum ink / her pink. Softened corners, washi tape and ribbon
+ *  stickers on a polka-dot wallpaper. Mono labels kept for legibility.
+ * ===========================================================================
  */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --background: 340 60% 99%;
+    --foreground: 325 18% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 325 18% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 325 18% 16%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 325 18% 16%;
+    --primary-foreground: 340 60% 99%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 340 70% 95%;
+    --secondary-foreground: 325 18% 16%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 340 45% 96%;
+    --muted-foreground: 330 12% 44%;
 
-    /* SOFT PINK — the one accent */
+    /* HER PINK — the one accent */
     --accent: 340 80% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 350 70% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
+    --border: 335 30% 88%;
+    --input: 335 30% 88%;
     --ring: 340 80% 55%;
 
     --radius: 0px;
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 93%;
+    --background: 325 18% 11%;
+    --foreground: 340 40% 95%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 93%;
+    --card: 325 16% 14%;
+    --card-foreground: 340 40% 95%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 93%;
+    --popover: 325 16% 14%;
+    --popover-foreground: 340 40% 95%;
 
-    --primary: 0 0% 93%;
-    --primary-foreground: 0 0% 7%;
+    --primary: 340 40% 95%;
+    --primary-foreground: 325 18% 11%;
 
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 93%;
+    --secondary: 325 14% 20%;
+    --secondary-foreground: 340 40% 95%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 62%;
+    --muted: 325 14% 20%;
+    --muted-foreground: 335 14% 70%;
 
-    --accent: 340 80% 60%;
-    --accent-foreground: 0 0% 7%;
+    --accent: 340 80% 66%;
+    --accent-foreground: 325 18% 11%;
 
-    --destructive: 0 63% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 350 62% 58%;
+    --destructive-foreground: 340 40% 95%;
 
-    --border: 0 0% 24%;
-    --input: 0 0% 24%;
-    --ring: 340 80% 60%;
+    --border: 325 12% 30%;
+    --input: 325 12% 30%;
+    --ring: 340 80% 66%;
   }
 }
 
@@ -129,3 +129,290 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ===========================================================================
+ *  DESKTOP WALLPAPER LAYER (homepage only)
+ * ---------------------------------------------------------------------------
+ *  Every section on the page reads its colours from these CSS variables, so
+ *  the whole site re-skins from this one block. No component had to change.
+ *
+ *  Specificity note: `html .desk-field` (0,1,1) deliberately outweighs the
+ *  `.dark` theme block (0,1,0), because the desktop is a daylight scene and
+ *  must not invert when the visitor's OS is in dark mode. Defining the tokens
+ *  on the FIELD (not the window) also covers the menubar and the dock, which
+ *  sit outside the window.
+ * ========================================================================= */
+html .desk-field {
+  --background: 340 100% 99%; /* blush paper */
+  --foreground: 325 20% 15%; /* plum ink, for the 2px outlines */
+  --card: 0 0% 100%; /* cards sit LIGHTER than the ground */
+  --card-foreground: 325 20% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 325 20% 15%;
+  --primary: 325 20% 15%;
+  --primary-foreground: 340 100% 99%;
+  --secondary: 340 85% 95%; /* blush */
+  --secondary-foreground: 325 20% 15%;
+  --muted: 340 60% 96%;
+  --muted-foreground: 330 12% 42%;
+  --accent: 340 80% 55%; /* #E8306E — her pink */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 350 70% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 325 20% 15%;
+  --input: 325 20% 15%;
+  --ring: 340 80% 55%;
+  --radius: 14px; /* softer than the hard-edged template */
+
+  /* The wallpaper: bubblegum pink with polka dots and two soft light
+     washes. Built entirely from gradients, so there is no image to 404. */
+  color: hsl(var(--foreground));
+  background-color: #ffb3d4;
+  background-image:
+    radial-gradient(58% 42% at 12% 12%, rgb(255 255 255 / 0.58) 0%, rgb(255 255 255 / 0) 62%),
+    radial-gradient(46% 34% at 80% 7%, rgb(255 255 255 / 0.46) 0%, rgb(255 255 255 / 0) 60%),
+    radial-gradient(circle at 18px 18px, rgb(255 255 255 / 0.55) 3.5px, transparent 4px),
+    radial-gradient(circle at 54px 54px, rgb(255 255 255 / 0.32) 2.5px, transparent 3px),
+    radial-gradient(140% 120% at 50% 120%, rgb(196 36 110 / 0.26) 0%, rgb(0 0 0 / 0) 60%);
+  background-size: auto, auto, 72px 72px, 72px 72px, auto;
+}
+
+/* Faint paper tooth on the window surface so it does not read as flat white */
+html .desk-window {
+  background-image: radial-gradient(circle at 1px 1px, hsl(240 6% 10% / 0.045) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* The sections were authored with 15% opacity outlines for a soft Swiss look.
+   Inside the paper window they need to read as drawn lines. */
+html .desk-window [class~="border-foreground/15"] {
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+/* Cards must be the lightest surface in the stack, never holes in the page. */
+html .desk-window [class~="bg-card"] {
+  background-color: #fff;
+}
+
+/* Tallest section rhythm the window can carry without endless scrolling */
+html .desk-window section {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+
+/* Fixed-viewport desktop: the page itself must not scroll, only the window.
+   `:has()` keeps this server-rendered, so there is no flash of a scrolling
+   page before JS boots. Phones opt out and scroll normally (see below). */
+@media (min-width: 901px) {
+  html:has(.desk-field),
+  html:has(.desk-field) body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ *  PASTED WALL CARDS
+ *  The tilt lives in a custom property so the hover state can straighten the
+ *  card without fighting an inline transform (inline styles beat classes).
+ * ------------------------------------------------------------------------ */
+.wall-card {
+  position: relative;
+  transform: rotate(var(--tilt, 0deg));
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+.wall-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 8px 9px 0 0 hsl(var(--foreground));
+}
+.wall-tape {
+  position: absolute;
+  top: -10px;
+  width: 72px;
+  height: 18px;
+  background: rgb(255 209 231 / 0.95); /* pink washi tape */
+  border: 1.5px solid hsl(var(--foreground) / 0.12);
+  pointer-events: none;
+}
+.wall-tape-l {
+  left: 20px;
+  transform: rotate(-5deg);
+}
+.wall-tape-r {
+  right: 22px;
+  transform: rotate(4deg);
+}
+
+/* ---------------------------------------------------------------------------
+ *  DESKTOP CHROME
+ * ------------------------------------------------------------------------ */
+/* The window body is the scroller, so it gets a paper-coloured scroll track */
+.desk-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+.desk-body::-webkit-scrollbar {
+  width: 11px;
+}
+.desk-body::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+.desk-body::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground));
+  border: 2px solid hsl(var(--muted));
+}
+
+/* Dock tiles lift on hover and print a tooltip above the tile */
+.desk-tile {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+.desk-tile:hover {
+  transform: translateY(-7px) scale(1.06);
+  box-shadow: 0 7px 0 0 hsl(var(--foreground));
+  background-color: #ff8ec2;
+}
+.desk-tile:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: hsl(var(--foreground));
+  color: hsl(var(--primary-foreground));
+  font-size: 11.5px;
+  font-weight: 650;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Phones: the desktop stops being a fixed viewport and becomes a tall card,
+   so normal page scrolling, Cmd+F and the URL bar all behave. */
+@media (max-width: 900px) {
+  html .desk-window {
+    height: auto;
+  }
+  .desk-body {
+    overflow: visible;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ *  VIEWPORT-RELATIVE FIXES
+ *  Two existing rules were authored against the whole viewport. Inside a
+ *  window they are simply wrong, so they are neutralised here rather than
+ *  edited in place (the full-page routes still need the originals).
+ * ------------------------------------------------------------------------ */
+
+/* The hero asked for a full viewport of height. In a 692px window that made
+   the hero alone taller than everything below it. The container inside
+   carries its own padding, so none is added here. */
+html .desk-window #hero {
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* One entrance for the window contents, replacing the per-element scroll
+   reveals that cannot work inside this scroller (see scroll-root.tsx). */
+@media (prefers-reduced-motion: no-preference) {
+  html .desk-window > .desk-body > main {
+    animation: desk-enter 420ms ease-out both;
+  }
+}
+@keyframes desk-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The hero was authored for a full page: a 7rem-padded container, a 96px
+   headline and a 475px portrait add up to ~956px, which is taller than the
+   window itself, so the wall never peeked above the fold. Tightened here so
+   the hero plus the start of the wall share one window height.
+   Note the headline drop is 96px -> 68px, which still leaves it far larger
+   than any section h2 (36-48px), so the hierarchy is intact. */
+html .desk-window #hero .container {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+html .desk-window #hero h1 {
+  font-size: clamp(2.75rem, 5.4vw, 4.25rem);
+}
+html .desk-window #hero .grid {
+  gap: 2.5rem;
+}
+/* Portrait column: 384px wide made a 475px-tall photo */
+html .desk-window #hero [class~="max-w-sm"] {
+  max-width: 16rem;
+}
+
+/* The trophy strip padded itself with (100vw - 1200px) / 2 to line up with a
+   centred container on a full page. The window is narrower than the viewport,
+   so that maths indented the strip far too much. */
+html .desk-window .no-scrollbar.snap-x {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ---------------------------------------------------------------------------
+ *  RIBBON STICKERS
+ *  A pointed banner clipped with clip-path, so it needs no artwork and cannot
+ *  404. It overhangs the card edge slightly so it reads as pressed on by hand
+ *  rather than drawn inside the card.
+ * ------------------------------------------------------------------------ */
+.ribbon {
+  position: absolute;
+  z-index: 2;
+  display: inline-block;
+  padding: 5px 15px 5px 11px;
+  background: hsl(var(--accent));
+  color: #fff;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 hsl(var(--foreground) / 0.16);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 50%, 100% 100%, 0 100%);
+  /* Never swallow a click meant for the card's link */
+  pointer-events: none;
+}
+.ribbon-tl {
+  top: 14px;
+  left: -9px;
+  transform: rotate(-2.5deg);
+}
+.ribbon-tr {
+  top: 14px;
+  right: -9px;
+  transform: rotate(2.5deg);
+  padding: 5px 11px 5px 15px;
+  clip-path: polygon(9px 0, 100% 0, 100% 100%, 9px 100%, 0 50%);
+}
+/* Lilac variant, so a wall of ribbons does not read as one flat colour */
+.ribbon-lilac {
+  background: #a06cf0;
+}
+.ribbon-mint {
+  background: #23a884;
+}
+
+
+
+

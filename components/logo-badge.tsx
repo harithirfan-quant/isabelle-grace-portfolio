@@ -10,10 +10,16 @@ export function LogoBadge({
   name,
   image,
   className,
+  variant = "square",
 }: {
   name: string;
   image?: string;
   className?: string;
+  /**
+   * "wide" gives wordmark logos room to stay legible. A 4:1 or 6:1 wordmark
+   * crushed into a 48px square is unreadable; the wide chip is 92px.
+   */
+  variant?: "square" | "wide";
 }) {
   const initials = name
     .replace(/\(.*?\)/g, "")
@@ -26,7 +32,8 @@ export function LogoBadge({
   return (
     <div
       className={cn(
-        "flex h-12 w-12 shrink-0 items-center justify-center rounded-[2px] border-2 border-foreground/20",
+        "flex shrink-0 items-center justify-center rounded-[2px] border-2 border-foreground/20",
+        variant === "wide" ? "h-[72px] w-[132px]" : "h-12 w-12",
         image ? "bg-white p-1.5" : "bg-secondary",
         className
       )}
@@ -36,9 +43,9 @@ export function LogoBadge({
         <Image
           src={image}
           alt=""
-          width={40}
-          height={40}
-          sizes="48px"
+          width={variant === "wide" ? 264 : 96}
+          height={96}
+          sizes={variant === "wide" ? "132px" : "48px"}
           className="h-full w-full object-contain"
         />
       ) : (

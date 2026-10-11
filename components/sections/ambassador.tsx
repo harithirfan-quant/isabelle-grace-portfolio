@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useInDeskWindow } from "@/components/desktop/scroll-root";
 import {
   ChevronLeft,
   ChevronRight,
@@ -144,6 +145,9 @@ function MonthDetail({ m }: { m: AmbassadorMonth }) {
 
 export function Ambassador() {
   const scroller = React.useRef<HTMLDivElement>(null);
+  // Inside the desktop window the scroll observer cannot be trusted, so the
+  // card entrance starts from the VISIBLE state (see scroll-root.tsx).
+  const inWindow = useInDeskWindow();
   const [open, setOpen] = React.useState<AmbassadorMonth | null>(null);
   const [atStart, setAtStart] = React.useState(true);
   const [atEnd, setAtEnd] = React.useState(false);
@@ -246,7 +250,7 @@ export function Ambassador() {
               data-card
               onClick={() => setOpen(m)}
               whileHover={{ y: -4 }}
-              initial={{ opacity: 0, y: 16 }}
+              initial={inWindow ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}

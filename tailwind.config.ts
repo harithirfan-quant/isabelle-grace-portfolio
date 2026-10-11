@@ -61,6 +61,7 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        hand: ["var(--font-hand)", "cursive"],
       },
       keyframes: {
         "accordion-down": {

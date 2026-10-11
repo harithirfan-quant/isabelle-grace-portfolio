@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy, Medal, Award, Star, Crown, Target } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useInDeskWindow } from "@/components/desktop/scroll-root";
 
 const ICONS: Record<string, React.ElementType> = {
   Trophy,
@@ -33,10 +34,13 @@ export function TrophyCard({
   index: number;
 }) {
   const Icon = ICONS[icon] ?? Trophy;
+  // Inside the desktop window the scroll observer cannot be trusted, so the
+  // entrance starts from the VISIBLE state: if it never fires, nothing is lost.
+  const inWindow = useInDeskWindow();
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={inWindow ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}

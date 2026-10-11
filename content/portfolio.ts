@@ -614,7 +614,87 @@ export const projects = [
   },
 ];
 
-/* ===========================================================================
+/* ---------------------------------------------------------------------------
+ * PINNED WALL (homepage only)
+ * The keepsakes stuck on the wallpaper. Sourced from trophyCase above, with a
+ * couple of the SIC photos so the wall is not all text.
+ *
+ * EDIT THIS:
+ *  - `ribbon` is the little banner on the corner. Drop the line for no ribbon.
+ *  - `tone` picks the card paper: paper | blush | lilac | mint
+ *  - `rotate` is the tilt in degrees (keep it under about 2)
+ *  - `imageContain` letterboxes a document whole; leave it off for photos
+ * ------------------------------------------------------------------------ */
+export type WallItem = {
+  id: string;
+  label: string;
+  caption?: string;
+  image?: string;
+  imageContain?: boolean;
+  tone?: "paper" | "blush" | "lilac" | "mint";
+  rotate?: number;
+  ribbon?: string;
+  ribbonTone?: "accent" | "lilac" | "mint";
+};
+
+export const wallItems: WallItem[] = [
+  {
+    id: "bintulu-scholar",
+    label: "Bintulu Port Scholar",
+    caption: "Bintulu Port Holdings Berhad · 2025",
+    tone: "blush",
+    rotate: -1.2,
+    ribbon: "Scholar",
+  },
+  {
+    id: "deans-award",
+    label: "Dean's Award",
+    caption: "3.95 GPA · Sem 1, 2025 · UniMAP",
+    tone: "paper",
+    rotate: 1.4,
+    ribbon: "GPA 3.95",
+    ribbonTone: "lilac",
+  },
+  {
+    id: "sic-consolation",
+    label: "2nd SIC 2026",
+    caption: "Consolation Prize, Category B · SEDA @ ISES 2026",
+    image: "/achievements/sic2026-awards.jpg",
+    imageContain: true,
+    tone: "paper",
+    rotate: -0.8,
+    ribbon: "Prize",
+  },
+  {
+    id: "sic-best-poster",
+    label: "Best Poster Award",
+    caption: "SEDA Innovation Challenge · KLCC, Aug 2026",
+    image: "/achievements/sic2026-booth.jpg",
+    tone: "paper",
+    rotate: 1.1,
+    ribbon: "Best Poster",
+    ribbonTone: "mint",
+  },
+  {
+    id: "riyi-mentee",
+    label: "RIYI Mentee",
+    caption: "REHDA Institute Youth Initiative · Apr 2026",
+    tone: "lilac",
+    rotate: -1.6,
+    ribbon: "Mentee",
+    ribbonTone: "lilac",
+  },
+  {
+    id: "cogliex",
+    label: "1st Place, CoGLIEx",
+    caption: "Universiti Teknologi MARA · 50+ teams · 2023",
+    tone: "paper",
+    rotate: 1.3,
+    ribbon: "1st Place",
+  },
+];
+
+/* ========================================================================
  * AMBASSADOR SLIDER (MyNext)
  * ======================================================================== */
 

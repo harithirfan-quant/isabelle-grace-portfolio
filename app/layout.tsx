@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Caveat, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
+import { SiteChrome } from "@/components/site-chrome";
 import { CommandPalette } from "@/components/command-palette";
 import { Toaster } from "sonner";
 import { personal, site, socials } from "@/content/portfolio";
@@ -13,6 +13,8 @@ const display = Space_Grotesk({
   variable: "--font-display",
 });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+// Handwritten accent, used only for the margin notes and the wall cards.
+const hand = Caveat({ subsets: ["latin"], variable: "--font-hand" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -49,8 +51,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+    // The desktop scene is a daylight one: pink wallpaper, light window.
+    { media: "(prefers-color-scheme: light)", color: "#ffb3d4" },
+    { media: "(prefers-color-scheme: dark)", color: "#ffb3d4" },
   ],
 };
 
@@ -78,19 +81,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${display.variable} ${mono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${display.variable} ${mono.variable} ${hand.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
           />
-          <Navbar />
-          {children}
+          <SiteChrome>
+            {children}
+          </SiteChrome>
           <CommandPalette />
           <Toaster richColors position="bottom-center" />
         </ThemeProvider>
