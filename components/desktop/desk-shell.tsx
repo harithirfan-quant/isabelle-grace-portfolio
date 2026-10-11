@@ -171,7 +171,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
   const windowHidden = closed || minimised;
 
   return (
-    <div className="desk-field flex h-[100dvh] flex-col max-[900px]:h-auto max-[900px]:min-h-[100dvh]">
+    <div className="desk-field mobile-shell flex h-[100dvh] flex-col max-[900px]:h-auto max-[900px]:min-h-[100svh]">
       {/* ---------------- menubar ---------------- */}
       <div className="relative z-40 flex shrink-0 items-center gap-4 border-b-2 border-foreground bg-white/90 px-4 py-1.5 text-[0.8rem] font-semibold backdrop-blur">
         <span
@@ -263,7 +263,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
         ) : null}
 
         {/* ---------------- dock ---------------- */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center px-3 pb-3 max-[900px]:fixed max-[900px]:z-40">
+        <div className="mobile-dock absolute bottom-0 left-0 right-0 flex justify-center px-3 pb-3 max-[900px]:fixed max-[900px]:z-40">
           <div
             className="no-scrollbar flex max-w-full gap-2.5 overflow-x-auto rounded-2xl border-2 border-foreground bg-white/90 p-2.5 shadow-[6px_7px_0_0_hsl(var(--foreground))] backdrop-blur"
             role="toolbar"

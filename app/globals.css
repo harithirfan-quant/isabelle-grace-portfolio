@@ -298,10 +298,23 @@ html .desk-window section {
    so normal page scrolling, Cmd+F and the URL bar all behave. */
 @media (max-width: 900px) {
   html .desk-window {
+    width: 100%;
     height: auto;
+    border-left-width: 1px;
+    border-right-width: 1px;
   }
   .desk-body {
-    overflow: visible;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  .mobile-shell > .relative {
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+  .mobile-dock {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+  .desk-tile {
+    touch-action: manipulation;
   }
 }
 
