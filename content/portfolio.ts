@@ -697,6 +697,16 @@ export const projects = [
     featured: true,
   },
   {
+    title: "Tera",
+    description:
+      "Shift-closing logbook for halal-certified F&B outlets. Staff photograph each check at the moment it happens and the server writes the time and place, so a closing record holds up in an audit instead of being filled in later. Built with team HIETech, and a finalist at the International Entrepreneurship Convention 2026 at IIUM Putrajaya.",
+    url: "https://tera.hietech.my",
+    repo: null,
+    tags: ["React", "Vite", "F&B Compliance", "Web App"],
+    image: "/projects/tera-landing.jpg",
+    featured: true,
+  },
+  {
     title: "Personal Branding: Soft Launch Your Career",
     description:
       "Co-hosted a virtual career development session for MyNext, guiding students through LinkedIn profile building, personal branding strategy, and career launch readiness.",
