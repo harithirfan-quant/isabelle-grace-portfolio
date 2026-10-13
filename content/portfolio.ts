@@ -36,13 +36,13 @@ export const personal = {
     "International Business Student | Open to Roles in Business, Strategy & Beyond",
   tagline:
     "I study International Business at UniMAP and train at Bintulu Port.",
-  location: "Bintulu, Sarawak / Perlis, Malaysia",
-  email: "isabellegrace3@outlook.com",
+  location: "Miri / Perlis, Malaysia",
+  email: "isabellegraceworkspace@gmail.com",
   timezone: "MYT (GMT+8)",
   languages: [
     "English (fluent)",
     "Malay (fluent)",
-    "Japanese (working proficiency)",
+    "Mandarin (working proficiency)",
   ],
   gpa: "3.80 / 4.00",
   deansAward: "Dean's Award Recipient: 3.95 GPA (Sem 1, 2025)",
@@ -67,10 +67,9 @@ export const socials = {
 
 export const resume = {
   file: "/resume.pdf",
-  lastUpdated: "August 2026",
-  // False until Isabelle sends her actual resume PDF. Hides every Resume
-  // button and the "Resume updated" captions across the site.
-  available: false,
+  lastUpdated: "October 2026",
+  // Resume PDF is live at /public/resume.pdf (added October 2026).
+  available: true,
 };
 
 export const navItems = [
@@ -121,12 +120,11 @@ export const hero = {
     "3.80 GPA",
   ],
   socialProof: [
+    "Huawei Sales Elite 1st Place",
     "Bintulu Port Scholar",
-    "MyNext Campus Ambassador",
-    "Google PM Certified",
-    "3.80 GPA",
+    "MyNext Ambassador",
   ],
-  resumeDate: "August 2026",
+  resumeDate: "October 2026",
   scrollHint: "Scroll",
 };
 
@@ -152,7 +150,9 @@ export const about = {
     "I'm looking for a role where I'm embedded where the work actually happens: sitting with the people who run operations, turning real challenges into action, and owning the outcome from first question to final deliverable. The settings I'm drawn to are high-stakes and human, where what you build touches actual people on actual teams.",
   ],
   milestones: [
+    "1st Place (B2C) + Best Solution Design Award: Huawei Malaysia Sales Elite Challenge 2026",
     "2nd SIC 2026: Consolation Prize + Best Poster (SEDA Innovation Challenge, Team HazyHorlick)",
+    "Grand Finalist: IFoA × PIAM VoltVision Challenge 2026 (Team HIETech)",
     "Bintulu Port Scholar 2025: placed in L&D / HRM division",
     "TalentCorp MyNext Campus Ambassador 25/26: 3+ career events, virtual sessions",
     "Dean's Award Recipient: 3.95 GPA (Sem 1, 2025)",
@@ -160,7 +160,7 @@ export const about = {
     "1st Place: CoGLIEx 2023 (50+ teams, UiTM)",
   ],
   skillsSummary:
-    "Certified in Google Project Management and Business Analysis. I speak English and Malay, with working Japanese.",
+    "Certified in Google Project Management and Business Analysis. I speak Mandarin, English and Malay.",
   skillTags: [
     "Project Management",
     "Business Analysis",
@@ -186,15 +186,15 @@ export const about = {
 
 export const experience = [
   {
-    role: "Trainee, Learning & Development / HRM",
+    role: "Industrial Trainee, Enterprise Risk Management and Learning & Capability Management",
     company: "Bintulu Port Holdings Berhad",
-    type: "Full-time \u00b7 On-site",
+    type: "Industrial Training · On-site",
     logo: "",
     location: "Bintulu, Sarawak",
-    dates: "Jul 2026 to Oct 2026",
+    dates: "Jul 2026 to Sep 2026",
     description:
-      "Training placement in the Learning and Development and Human Resource Management division of a major Malaysian port operator. Supporting talent development programmes, internal training coordination, and workforce planning.",
-    skills: ["L&D Operations", "HRM", "Stakeholder Management"],
+      "Two months inside a major Malaysian port operator, split across two divisions. In Enterprise Risk Management I presented the 4 Moments to open the ERM Challenge Session 2026 in front of senior leadership, built a competitive risk benchmarking study of five Malaysian ports (Bintulu, Kuantan, Westports, Sabah Ports, Tanjung Pelepas), researched PDPA exposure with a risk ownership assessment, and delivered a business continuity threat benchmark of 30 to 50 threat-to-worst-case pairs across 14 risk categories. After transferring to Learning & Capability Management I supported the capability roadshow, updated the BEES e-learning ecosystem, designed materials for the Cohort 2 scholarship award ceremony and study loan process, and ran events including the Special Olympics Malaysia National Games appreciation dinner and the Emerging Leaders Club Annual General Meeting as emcee.",
+    skills: ["Enterprise Risk Management", "Risk Benchmarking", "Business Continuity", "L&D Operations", "Event Management"],
     certificate: "",
   },
   {
@@ -216,55 +216,55 @@ export const experience = [
  * ======================================================================== */
 
 export const aiInternship = {
-  role: "Trainee in Learning & Development",
+  role: "Industrial Trainee, Risk and Learning & Capability",
   company: "Bintulu Port Holdings Berhad",
   companyLogo: "",
   blurb:
-    "My placement at Bintulu Port puts me inside the Learning and Development team, where I support the systems and processes that keep talent moving through a major national infrastructure operator.",
+    "My placement at Bintulu Port ran across two divisions: Enterprise Risk Management first, then Learning and Capability Management. Here is what that actually looked like.",
   dailyWork: [
     {
-      time: "Daily",
-      title: "Support training programme coordination",
+      time: "Opening the session",
+      title: "Present the 4 Moments to leadership",
       description:
-        "Help plan, schedule, and track internal training sessions across departments, making sure the right people are in the right sessions at the right time.",
-      tools: ["Training ops", "Scheduling"],
+        "Prepared and delivered the slide deck on health, safety and environment, integrity, corporate values and corporate culture that opened the ERM Challenge Session 2026, then captured the transcript and the questions management raised as a standing department record.",
+      tools: ["Risk communication", "Minute taking"],
     },
     {
-      time: "Daily",
-      title: "Maintain L&D records and reporting",
+      time: "Four weeks",
+      title: "Benchmark risk disclosure across five Malaysian ports",
       description:
-        "Keep training logs, attendance records, and compliance documentation organised so the team can pull reports without scrambling.",
-      tools: ["Documentation", "Excel"],
+        "Compared how Bintulu Port, Kuantan Port, Westports, Sabah Ports and Port Tanjung Pelepas each describe their risks, mapped every disclosure into a fixed set of categories, and turned it into a top-three-risks comparison and a dashboard a reader can interpret at a glance.",
+      tools: ["Excel", "Benchmarking"],
     },
     {
-      time: "Regularly",
-      title: "Assist with workforce planning admin",
+      time: "Research strand",
+      title: "Assess PDPA exposure and risk ownership",
       description:
-        "Support the HRM team with talent pipeline tracking, onboarding documentation, and internal communications across the organisation.",
-      tools: ["HRM", "Stakeholder coordination"],
+        "Studied Personal Data Protection Act exposure across Malaysian ports and asked who actually owns each risk, because that question decides whether anything happens about it.",
+      tools: ["Regulatory research"],
     },
     {
-      time: "Ongoing",
-      title: "Learn how a port actually runs",
+      time: "One deliverable",
+      title: "Build the business continuity threat list",
       description:
-        "Study the operational rhythms of a major logistics hub so the L&D programmes I support actually match what the workforce needs on the ground.",
-      tools: ["Operations awareness"],
+        "Wrote a Bintulu Port specific benchmark of 30 to 50 threat-to-worst-case scenario pairs across 14 risk categories, each anchored in the port's real operating context rather than generic industry examples.",
+      tools: ["Business continuity"],
     },
     {
-      time: "Every project",
-      title: "Double-check before it ships",
+      time: "After the transfer",
+      title: "Support training and scholarship programmes",
       description:
-        "Review training materials and communications before they go out. When something touches personnel records or compliance, I confirm with leadership before acting.",
-      tools: ["Quality assurance"],
+        "In Learning and Capability Management I helped run the capability roadshow, updated the BEES e-learning ecosystem with employee account and department data, and designed the posters for the Cohort 2 Scholarship Award Ceremony, the Scholarship Immersion Programme and the study loan process.",
+      tools: ["Canva", "E-learning systems"],
     },
     {
-      time: "When it matters",
-      title: "Know when to stop and escalate",
+      time: "Events",
+      title: "Run the events and take the mic",
       description:
-        "When a task touches sensitive employee data, I stop rather than deciding the privacy question on my own assumptions, and take it to the right person before proceeding.",
-      tools: ["Confidentiality"],
+        "Joined the Special Olympics Malaysia National Games 2026 appreciation dinner committee and the Scholarship Award Ceremony Cohort 2 committee, and emceed the Emerging Leaders Club Annual General Meeting on a script I wrote from scratch.",
+      tools: ["Event management", "Emceeing"],
     },
-  ],
+  ] as DailyWorkItem[],
 };
 
 export type DailyWorkItem = {
@@ -345,6 +345,38 @@ export type TimelineItem = {
 };
 
 export const timeline: TimelineItem[] = [
+  {
+    title: "Finalist: International Entrepreneurship Convention 2026",
+    org: "IIUM Putrajaya · team HIETech",
+    date: "Oct 2026",
+    description:
+      "Pitched with team HIETech in the International Entrepreneurship Convention pitching competition at IIUM Putrajaya: a halal compliance tool for F&B outlets, shortlisted into the finals from around 150 participants and 48 to 50 teams.",
+    image: "",
+  },
+  {
+    title: "1st Place: Huawei Malaysia Sales Elite Challenge 2026",
+    org: "Huawei Malaysia",
+    date: "Oct 2026",
+    description:
+      "Won first place in the B2C category of a nationwide sales challenge open to undergraduates across Malaysia, and took the Best Solution Design Award as well.",
+    image: "",
+  },
+  {
+    title: "Grand Finalist: IFoA × PIAM VoltVision Challenge 2026",
+    org: "Institute and Faculty of Actuaries × PIAM",
+    date: "Sep 2026",
+    description:
+      "Reached the grand final with team HIETech, presenting a strategic roadmap for Malaysia's EV ecosystem to a panel of industry judges.",
+    image: "",
+  },
+  {
+    title: "Participant: AI Talent Bootcamp 2026",
+    org: "UKM I-COMM × Etiqa · Domain 5: Energy Transition & Sustainability",
+    date: "Sep 2026",
+    description:
+      "Completed the three-day AI Talent Bootcamp with a UniMAP team, working the Energy Transition and Sustainability domain challenge on how AI can optimise operations, improve safety and support sustainability goals.",
+    image: "",
+  },
   {
     title: "2nd SIC 2026: Consolation Prize + Best Poster",
     org: "SEDA Innovation Challenge @ ISES 2026",
@@ -451,6 +483,30 @@ export const trophyCase: Trophy[] = [
     title: "2nd SIC 2026: Best Poster Award",
     issuer: "SEDA / ISES 2026",
     date: "Aug 2026",
+  },
+  {
+    icon: "Crown",
+    title: "1st Place (B2C): Huawei Sales Elite Challenge 2026",
+    issuer: "Huawei Malaysia · nationwide student challenge",
+    date: "Oct 2026",
+  },
+  {
+    icon: "Award",
+    title: "Best Solution Design Award",
+    issuer: "Huawei Malaysia Sales Elite Challenge 2026",
+    date: "Oct 2026",
+  },
+  {
+    icon: "Trophy",
+    title: "Grand Finalist: IFoA × PIAM VoltVision Challenge 2026",
+    issuer: "Institute and Faculty of Actuaries × PIAM",
+    date: "Sep 2026",
+  },
+  {
+    icon: "Medal",
+    title: "Finalist: International Entrepreneurship Convention 2026",
+    issuer: "IIUM Putrajaya · team HIETech",
+    date: "Oct 2026",
   },
 ];
 
@@ -571,6 +627,46 @@ export const certifications: Certification[] = [
     date: "2023",
     credentialId: "",
     category: "Competitions",
+    url: "",
+  },
+  {
+    title: "1st Place (B2C) + Best Solution Design Award, Huawei Malaysia Sales Elite Challenge 2026",
+    issuer: "Huawei Malaysia",
+    date: "Oct 2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+  },
+  {
+    title: "Grand Finalist, IFoA × PIAM VoltVision Challenge 2026",
+    issuer: "Institute and Faculty of Actuaries × PIAM",
+    date: "Sep 2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+  },
+  {
+    title: "Finalist, International Entrepreneurship Convention 2026",
+    issuer: "IIUM Putrajaya",
+    date: "Oct 2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+  },
+  {
+    title: "AI Talent Bootcamp 2026: Domain 5, Energy Transition & Sustainability",
+    issuer: "UKM I-COMM × Etiqa",
+    date: "Sep 2026",
+    credentialId: "",
+    category: "Competitions",
+    url: "",
+  },
+  {
+    title: "Bursa Malaysia National Investment Programme (NIP 2026)",
+    issuer: "Yayasan Bursa Malaysia",
+    date: "Apr 2026",
+    credentialId: "",
+    category: "Finance",
     url: "",
   },
 ];
@@ -827,6 +923,6 @@ export const site = {
   firstName: "Isabelle",
   lastName: "Grace",
   fullName: "Isabelle Grace Poly",
-  email: "isabellegrace3@outlook.com",
-  resumeDate: "August 2026",
+  email: "isabellegraceworkspace@gmail.com",
+  resumeDate: "October 2026",
 };
