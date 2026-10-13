@@ -65,7 +65,7 @@ export function Press() {
 
           const body = (
             <>
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted">
+              <div className="press-thumb relative aspect-[16/9] w-full overflow-hidden bg-muted">
                 {preview}
                 {/* outlet strip */}
                 <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 bg-foreground px-2.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-widest text-background">

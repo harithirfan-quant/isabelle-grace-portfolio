@@ -10,6 +10,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { TrophyCard } from "@/components/trophy-card";
 import { certifications, trophyCase } from "@/content/portfolio";
 import { LogoBadge } from "@/components/logo-badge";
+import { MobileCollapse } from "@/components/mobile-collapse";
 
 const CATEGORIES = [
   "All",
@@ -158,7 +159,10 @@ export function Certifications() {
           </p>
         </Reveal>
 
-        <Tabs defaultValue="All">
+        {/* A long credential grid is an endless scroll on a phone. The tabs
+            and the grid open together behind one button. */}
+        <MobileCollapse count={certifications.length} noun="credentials">
+          <Tabs defaultValue="All">
           <div className="flex justify-center">
             <TabsList>
               {CATEGORIES.map((cat) => (
@@ -173,7 +177,8 @@ export function Certifications() {
               <CertGrid category={cat} />
             </TabsContent>
           ))}
-        </Tabs>
+          </Tabs>
+        </MobileCollapse>
       </div>
     </section>
   );

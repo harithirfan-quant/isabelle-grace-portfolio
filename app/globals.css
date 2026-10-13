@@ -294,6 +294,15 @@ html .desk-window section {
   pointer-events: none;
 }
 
+/* Phone-only affordances, hidden on desktop. These are declared BEFORE the
+   max-width query below on purpose: an unwrapped `display: none` placed after
+   it would beat the query's `display: block` on source order alone and hide
+   the toggle everywhere. */
+.mobile-collapse-toggle,
+.desk-tile-label {
+  display: none;
+}
+
 /* Phones: the desktop stops being a fixed viewport and becomes a tall card,
    so normal page scrolling, Cmd+F and the URL bar all behave. */
 @media (max-width: 900px) {
@@ -307,14 +316,71 @@ html .desk-window section {
     overflow-x: clip;
     overflow-y: visible;
   }
+  /* Clearance for the fixed dock, plus a comfortable gap so the footer is
+     not jammed against it. Dock is 5 tiles + its own padding ~= 94px. */
   .mobile-shell > .relative {
-    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom));
   }
   .mobile-dock {
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
   .desk-tile {
     touch-action: manipulation;
+  }
+  /* Menubar clears a notch when the page is installed / full-bleed. */
+  .mobile-menubar {
+    padding-top: max(0.375rem, env(safe-area-inset-top));
+  }
+  /* ---- dock tiles grow a text label on phones -------------------------
+     Five unlabelled glyphs are guesswork on a phone; the desktop tooltip
+     never fires on touch. The label replaces the active-state dot. */
+  .mobile-dock-row {
+    gap: 0.4rem;
+  }
+  .desk-tile {
+    width: 3.5rem;
+    height: 3.6rem;
+  }
+  .desk-tile svg {
+    transform: translateY(-0.25rem);
+  }
+  .desk-tile-dot {
+    display: none;
+  }
+  .desk-tile-label {
+    display: block;
+    position: absolute;
+    bottom: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  /* ---- long lists collapse behind one button -------------------------- */
+  .mobile-collapse-toggle {
+    display: inline-flex;
+  }
+  .mobile-collapse[data-open="false"] > .mobile-collapse-body {
+    display: none;
+  }
+  /* Press cards on a phone: the 16:9 screenshot preview is a 173px picture
+     of a web page, which is unreadable and costs a screen per mention.
+     The outlet, headline, event and date carry the information instead. */
+  .press-thumb {
+    display: none;
+  }
+}
+
+/* Phones only: the smallest metadata type (0.6-0.65rem) is the legibility
+   floor on a 390px screen, so it is lifted to a readable 0.72rem. */
+@media (max-width: 640px) {
+  html [class*="text-[0.6rem]"],
+  html [class*="text-[0.65rem]"] {
+    font-size: 0.72rem;
   }
 }
 

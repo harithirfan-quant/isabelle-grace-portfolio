@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
+import { MobileCollapse } from "@/components/mobile-collapse";
 import { timeline } from "@/content/portfolio";
 
 export function Timeline() {
@@ -16,6 +17,8 @@ export function Timeline() {
       />
 
       <div className="relative mx-auto mt-14 max-w-4xl">
+        {/* The full milestone reel is several screens long on a phone. */}
+        <MobileCollapse count={timeline.length} noun="milestones">
         {/* center line (desktop) / left line (mobile) */}
         <div
           className="absolute inset-y-0 left-4 w-0.5 bg-foreground/15 md:left-1/2 md:-translate-x-1/2"
@@ -139,6 +142,7 @@ export function Timeline() {
             );
           })}
         </div>
+        </MobileCollapse>
       </div>
     </section>
   );

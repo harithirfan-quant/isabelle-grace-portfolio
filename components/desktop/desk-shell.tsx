@@ -150,15 +150,23 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
       const small = isSmallScreen();
       const scroller = bodyRef.current;
       const anchorY = small
-        ? 110
+        ? 140
         : scroller
           ? scroller.getBoundingClientRect().top + 56
           : 56;
       let best: string | null = null;
+      let bestTop = -Infinity;
       for (const id of ids) {
         const el = document.getElementById(id);
         if (!el) continue;
-        if (el.getBoundingClientRect().top <= anchorY) best = id;
+        // Nearest section ABOVE the anchor, not the last one in DOCK order:
+        // on pages where the dock order and the document order differ the
+        // dock order would light the wrong tile.
+        const top = el.getBoundingClientRect().top;
+        if (top <= anchorY && top > bestTop) {
+          bestTop = top;
+          best = id;
+        }
       }
       if (best) setActive(best);
     };
@@ -173,7 +181,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="desk-field mobile-shell flex h-[100dvh] flex-col max-[900px]:h-auto max-[900px]:min-h-[100svh]">
       {/* ---------------- menubar ---------------- */}
-      <div className="relative z-40 flex shrink-0 items-center gap-4 border-b-2 border-foreground bg-white/90 px-4 py-1.5 text-[0.8rem] font-semibold backdrop-blur">
+      <div className="mobile-menubar relative z-40 flex shrink-0 items-center gap-4 border-b-2 border-foreground bg-white/90 px-4 py-1.5 text-[0.8rem] font-semibold backdrop-blur">
         <span
           className="h-3.5 w-3.5 shrink-0 rounded-full border-[1.5px] border-foreground bg-accent"
           aria-hidden
@@ -265,7 +273,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
         {/* ---------------- dock ---------------- */}
         <div className="mobile-dock absolute bottom-0 left-0 right-0 flex justify-center px-3 pb-3 max-[900px]:fixed max-[900px]:z-40">
           <div
-            className="no-scrollbar flex max-w-full gap-2.5 overflow-x-auto rounded-2xl border-2 border-foreground bg-white/90 p-2.5 shadow-[6px_7px_0_0_hsl(var(--foreground))] backdrop-blur"
+            className="mobile-dock-row no-scrollbar flex max-w-full gap-2.5 overflow-x-auto rounded-2xl border-2 border-foreground bg-white/90 p-2.5 shadow-[6px_7px_0_0_hsl(var(--foreground))] backdrop-blur"
             role="toolbar"
             aria-label="Jump to a section"
           >
@@ -281,8 +289,13 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
                 }`}
               >
                 {d.icon}
+                {/* Phones only: the desktop tooltip never fires on touch, so
+                    the tile carries its own label under the icon. */}
+                <span className="desk-tile-label" aria-hidden>
+                  {d.label}
+                </span>
                 <span
-                  className={`absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-foreground transition-opacity ${
+                  className={`desk-tile-dot absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-foreground transition-opacity ${
                     active === d.id ? "opacity-100" : "opacity-0"
                   }`}
                   aria-hidden
