@@ -156,11 +156,14 @@ export const about = {
     "Bintulu Port Scholar 2025: placed in L&D / HRM division",
     "TalentCorp MyNext Campus Ambassador 25/26: 3+ career events, virtual sessions",
     "Dean's Award Recipient: 3.95 GPA (Sem 1, 2025)",
-    "RIYI Mentorship Programme: selected among students nationwide",
-    "1st Place: CoGLIEx 2023 (50+ teams, UiTM)",
+    "RIYI Mentorship Programme: 3rd Place, Outstanding Achievement",
+    // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+    // "1st Place: CoGLIEx 2023 (50+ teams, UiTM)",
   ],
-  skillsSummary:
-    "Certified in Google Project Management and Business Analysis. I speak Mandarin, English and Malay.",
+  // PENDING ISABELLE: was "Certified in Google Project Management and Business
+  // Analysis. I speak Mandarin, English and Malay." Restore the first sentence
+  // once she confirms the certificates.
+  skillsSummary: "I speak Mandarin, English and Malay.",
   skillTags: [
     "Project Management",
     "Business Analysis",
@@ -413,17 +416,18 @@ export const timeline: TimelineItem[] = [
     org: "REHDA Institute",
     date: "Apr 2026",
     description:
-      "Selected among students nationwide for a competitive industry-academia initiative, representing UniMAP among 15 universities. Mentored by industry leaders in property development.",
+      "Selected among students nationwide for a competitive industry-academia initiative, representing UniMAP among 15 universities. Mentored by industry leaders in property development, and finished with 3rd Place in the Outstanding Achievement award.",
     image: "",
   },
-  {
-    title: "1st Place: CoGLIEx 2023",
-    org: "Universiti Teknologi MARA",
-    date: "2023",
-    description:
-      "Led a team to first place among 50+ teams in the Contemporary Global and Legal Issues Exhibition at UiTM.",
-    image: "",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   title: "1st Place: CoGLIEx 2023",
+  //   org: "Universiti Teknologi MARA",
+  //   date: "2023",
+  //   description:
+  //     "Led a team to first place among 50+ teams in the Contemporary Global and Legal Issues Exhibition at UiTM.",
+  //   image: "",
+  // },
 ];
 
 /* ===========================================================================
@@ -452,24 +456,26 @@ export const trophyCase: Trophy[] = [
     issuer: "Universiti Malaysia Perlis",
     date: "Sem 1, 2025",
   },
-  {
-    icon: "Award",
-    title: "Google Project Management Professional",
-    issuer: "Google",
-    date: "Jun 2026",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   icon: "Award",
+  //   title: "Google Project Management Professional",
+  //   issuer: "Google",
+  //   date: "Jun 2026",
+  // },
   {
     icon: "Trophy",
-    title: "RIYI Mentorship Programme",
-    issuer: "REHDA Institute",
-    date: "Apr 2026",
+    title: "3rd Place: RIYI Outstanding Achievement",
+    issuer: "REHDA Institute Youth Initiative 2026",
+    date: "2026",
   },
-  {
-    icon: "Medal",
-    title: "1st Place: CoGLIEx 2023",
-    issuer: "Universiti Teknologi MARA (50+ teams)",
-    date: "2023",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   icon: "Medal",
+  //   title: "1st Place: CoGLIEx 2023",
+  //   issuer: "Universiti Teknologi MARA (50+ teams)",
+  //   date: "2023",
+  // },
   {
     icon: "Trophy",
     title: "2nd SIC 2026: Consolation Prize (Category B)",
@@ -536,54 +542,55 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
-  {
-    title: "Google Project Management Professional Certificate",
-    issuer: "Google",
-    date: "Jun 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
-  {
-    title: "Google Project Management Specialization Certificate",
-    issuer: "Google",
-    date: "Jun 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
-  {
-    title: "Accelerate Your Job Search with AI",
-    issuer: "Google",
-    date: "Jun 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
-  {
-    title: "Capstone: Applying Project Management in the Real World",
-    issuer: "Google",
-    date: "Jun 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
-  {
-    title: "Project Initiation: Starting a Successful Project",
-    issuer: "Google",
-    date: "Jan 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
-  {
-    title: "Project Planning: Putting It All Together",
-    issuer: "Google",
-    date: "Feb 2026",
-    credentialId: "",
-    category: "Google",
-    url: "",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   title: "Google Project Management Professional Certificate",
+  //   issuer: "Google",
+  //   date: "Jun 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
+  // {
+  //   title: "Google Project Management Specialization Certificate",
+  //   issuer: "Google",
+  //   date: "Jun 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
+  // {
+  //   title: "Accelerate Your Job Search with AI",
+  //   issuer: "Google",
+  //   date: "Jun 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
+  // {
+  //   title: "Capstone: Applying Project Management in the Real World",
+  //   issuer: "Google",
+  //   date: "Jun 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
+  // {
+  //   title: "Project Initiation: Starting a Successful Project",
+  //   issuer: "Google",
+  //   date: "Jan 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
+  // {
+  //   title: "Project Planning: Putting It All Together",
+  //   issuer: "Google",
+  //   date: "Feb 2026",
+  //   credentialId: "",
+  //   category: "Google",
+  //   url: "",
+  // },
   // --- GOVERNMENT ---
   {
     title: "MyNext Campus Ambassador 25/26",
@@ -621,14 +628,15 @@ export const certifications: Certification[] = [
     url: "",
     image: "/achievements/sic2026-awards.jpg",
   },
-  {
-    title: "1st Place: CoGLIEx 2023",
-    issuer: "Universiti Teknologi MARA",
-    date: "2023",
-    credentialId: "",
-    category: "Competitions",
-    url: "",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   title: "1st Place: CoGLIEx 2023",
+  //   issuer: "Universiti Teknologi MARA",
+  //   date: "2023",
+  //   credentialId: "",
+  //   category: "Competitions",
+  //   url: "",
+  // },
   {
     title: "1st Place (B2C) + Best Solution Design Award, Huawei Malaysia Sales Elite Challenge 2026",
     issuer: "Huawei Malaysia",
@@ -783,21 +791,22 @@ export const wallItems: WallItem[] = [
   },
   {
     id: "riyi-mentee",
-    label: "RIYI Mentee",
-    caption: "REHDA Institute Youth Initiative · Apr 2026",
+    label: "RIYI Outstanding Achievement",
+    caption: "3rd Place · REHDA Institute Youth Initiative 2026",
     tone: "lilac",
     rotate: -1.6,
-    ribbon: "Mentee",
+    ribbon: "3rd Place",
     ribbonTone: "lilac",
   },
-  {
-    id: "cogliex",
-    label: "1st Place, CoGLIEx",
-    caption: "Universiti Teknologi MARA · 50+ teams · 2023",
-    tone: "paper",
-    rotate: 1.3,
-    ribbon: "1st Place",
-  },
+  // PENDING ISABELLE: hidden until she confirms. Uncomment to restore.
+  // {
+  //   id: "cogliex",
+  //   label: "1st Place, CoGLIEx",
+  //   caption: "Universiti Teknologi MARA · 50+ teams · 2023",
+  //   tone: "paper",
+  //   rotate: 1.3,
+  //   ribbon: "1st Place",
+  // },
 ];
 
 /* ========================================================================

@@ -27,17 +27,21 @@ caption across the site (hero, navbar, footer, contact, experience, /api/resume)
 - **Bintulu Port Scholar announcement link** (press card), if one exists.
 - Any UniMAP/TalentCorp/MyNext coverage about **her** for the press section.
 
-## 4. Claims that need her confirmation (shown live but assumed from shared context)
+## 4. Claims that need her confirmation
 
-Please confirm each is true, and send credential URLs/IDs if she wants them shown:
+Reviewed with Harith on 14 Oct 2026. Hidden items are commented out in place in
+`content/portfolio.ts` under a `PENDING ISABELLE` marker: uncomment to restore.
 
-- Google Project Management certifications — **all 6 entries** (titles/dates
-  were inherited from the template; some look like the free Coursera courses)
-- 1st Place CoGLIEx 2023 (UiTM, 50+ teams)
-- RIYI Mentorship Programme (REHDA Institute)
-- Dean's Award 3.95 GPA (Sem 1 2025)
-- CGPA 3.80 overall
-- "Certified in Business Analysis" (skills summary line)
+| Claim | Status |
+|---|---|
+| CGPA 3.80 overall | ✅ CONFIRMED, live |
+| Dean's Award 3.95 GPA (Sem 1 2025) | ✅ CONFIRMED, live |
+| RIYI Mentorship Programme (REHDA Institute) | ✅ CONFIRMED, live, now shows **3rd Place, Outstanding Achievement** (milestone, trophy case, timeline, wall sticker) |
+| Google Project Management certifications (all 6) | ⏸ HIDDEN until she confirms. Send credential URLs if real. The Google filter tab hides itself while empty. |
+| "Certified in Google PM and Business Analysis" (skills summary) | ⏸ HIDDEN, summary now reads "I speak Mandarin, English and Malay." |
+| 1st Place CoGLIEx 2023 (UiTM, 50+ teams) | ⏸ HIDDEN (milestone, timeline, trophy case, certification, wall sticker) |
+
+Still worth her checking: a photo of the RIYI award for the wall sticker and trophy card.
 
 ## 5. Optional polish
 

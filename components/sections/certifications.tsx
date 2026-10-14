@@ -20,6 +20,12 @@ const CATEGORIES = [
   "Competitions",
 ] as const;
 
+// Only show a tab when it has something in it, so hiding unconfirmed entries
+// never leaves an empty filter behind (and restoring them brings it back).
+const VISIBLE_CATEGORIES = CATEGORIES.filter(
+  (cat) => cat === "All" || certifications.some((c) => c.category === cat)
+);
+
 function CertGrid({ category }: { category: string }) {
   const items =
     category === "All"
@@ -165,14 +171,14 @@ export function Certifications() {
           <Tabs defaultValue="All">
           <div className="flex justify-center">
             <TabsList>
-              {CATEGORIES.map((cat) => (
+              {VISIBLE_CATEGORIES.map((cat) => (
                 <TabsTrigger key={cat} value={cat}>
                   {cat}
                 </TabsTrigger>
               ))}
             </TabsList>
           </div>
-          {CATEGORIES.map((cat) => (
+          {VISIBLE_CATEGORIES.map((cat) => (
             <TabsContent key={cat} value={cat}>
               <CertGrid category={cat} />
             </TabsContent>
