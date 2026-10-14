@@ -65,7 +65,9 @@ function WallCard({ item, index }: { item: WallItem; index: number }) {
   return (
     <Reveal>
       <div
-        className={`wall-card group relative h-full rounded-[10px] border-2 border-foreground p-4 shadow-hard ${tone}`}
+        // A ribbon is pinned 14px from the top. Over a photo that is fine, but
+        // on a text-only card it sat on the title, so drop the content below it.
+        className={`wall-card group relative h-full rounded-[10px] border-2 border-foreground p-4 shadow-hard ${item.ribbon && !item.image ? "pt-11" : ""} ${tone}`}
         style={{ ["--tilt" as string]: `${item.rotate ?? 0}deg` }}
       >
         {item.ribbon ? (

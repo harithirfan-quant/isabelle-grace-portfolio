@@ -35,7 +35,7 @@ export function Navbar() {
         {/* Brand */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight"
+          className="flex min-h-11 items-center gap-2.5 font-display text-lg font-bold tracking-tight"
         >
           <span className="h-3 w-3 bg-accent" aria-hidden />
           {personal.preferredName}

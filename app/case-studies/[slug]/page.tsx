@@ -46,11 +46,11 @@ export default function CaseStudyPage({
       <div className="container">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-foreground transition-colors">
+          <Link href="/" className="inline-flex min-h-11 items-center hover:text-foreground transition-colors lg:min-h-0">
             Home
           </Link>
           <span className="mx-2 text-border">·</span>
-          <Link href="/#projects" className="hover:text-foreground transition-colors">
+          <Link href="/#projects" className="inline-flex min-h-11 items-center hover:text-foreground transition-colors lg:min-h-0">
             Projects
           </Link>
           <span className="mx-2 text-border">·</span>
@@ -60,7 +60,7 @@ export default function CaseStudyPage({
         {/* Back */}
         <Link
           href="/#projects"
-          className="mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="mb-10 inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Projects

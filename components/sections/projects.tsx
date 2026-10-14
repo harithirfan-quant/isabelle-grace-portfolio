@@ -39,7 +39,7 @@ function FeaturedProject({
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
         />
       ) : (
-        <span className="font-display text-5xl font-bold tracking-tight text-foreground/60 transition-colors group-hover:text-foreground sm:text-6xl">
+        <span className="line-clamp-3 text-balance px-6 text-center font-display text-3xl font-bold leading-[1.05] tracking-tight text-foreground/60 transition-colors group-hover:text-foreground sm:text-5xl">
           {project.title}
         </span>
       )}
@@ -99,13 +99,13 @@ function FeaturedProject({
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap items-center gap-4">
+        <div className="mt-5 flex flex-wrap items-center gap-x-4 sm:gap-4">
           {hasUrl && (
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-widest text-accent hover:underline"
+              className="inline-flex min-h-11 items-center gap-1.5 font-mono text-sm font-semibold uppercase lg:min-h-0 tracking-widest text-accent hover:underline"
             >
               <ExternalLink className="h-4 w-4" />
               Live Demo
@@ -116,7 +116,7 @@ function FeaturedProject({
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-muted-foreground lg:min-h-0 transition-colors hover:text-foreground"
             >
               <Github className="h-4 w-4" />
               Source
@@ -125,7 +125,7 @@ function FeaturedProject({
           {caseStudy && (
             <Link
               href={`/case-studies/${caseStudy.slug}`}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-muted-foreground lg:min-h-0 transition-colors hover:text-foreground"
             >
               <FileText className="h-4 w-4" />
               Case Study

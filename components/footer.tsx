@@ -58,17 +58,17 @@ export function Footer() {
 
           <div className="md:text-right">
             <p className="eyebrow text-muted-foreground">Site</p>
-            <div className="mt-4 flex flex-col gap-2 md:items-end">
+            <div className="mt-4 flex flex-col items-start md:items-end md:gap-2">
               <Link
                 href="/blog"
-                className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground lg:min-h-0"
               >
                 Blog
               </Link>
               {resume.available && (
                 <button
                   onClick={openResume}
-                  className="font-mono text-xs uppercase tracking-widest text-accent transition-colors hover:underline"
+                  className="inline-flex min-h-11 items-center text-left font-mono text-xs uppercase tracking-widest text-accent transition-colors hover:underline lg:min-h-0"
                 >
                   Resume, updated {resume.lastUpdated}
                 </button>

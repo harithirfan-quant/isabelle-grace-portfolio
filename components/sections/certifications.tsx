@@ -116,7 +116,7 @@ export function Certifications() {
           index="09"
           eyebrow="Credentials"
           title="Certifications & wins"
-          description="Verified credentials from Google, TalentCorp, Bintulu Port, and university programmes."
+          description="Verified credentials from TalentCorp, Bintulu Port, and university programmes."
         />
       </div>
 

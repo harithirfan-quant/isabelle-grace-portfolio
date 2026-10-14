@@ -23,7 +23,7 @@ export default function BlogPage() {
     <main className="container scroll-mt-20 pb-24 pt-32">
       {/* Breadcrumb */}
       <nav className="mb-8 text-sm text-muted-foreground">
-        <Link href="/" className="hover:text-foreground transition-colors">
+        <Link href="/" className="inline-flex min-h-11 items-center hover:text-foreground transition-colors lg:min-h-0">
           Home
         </Link>
         <span className="mx-2 text-border">·</span>

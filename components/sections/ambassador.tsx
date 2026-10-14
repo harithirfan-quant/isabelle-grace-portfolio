@@ -15,6 +15,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,
@@ -36,18 +37,27 @@ function StatBlock({
   icon: Icon,
   value,
   label,
+  inline = false,
 }: {
   icon: React.ElementType;
   value: string | number;
   label: string;
+  /** Phones: icon, number and label in one row. A three-up tile is ~95px
+   *  wide there, too narrow for "PARTICIPANTS" in mono, so it got clipped. */
+  inline?: boolean;
 }) {
   return (
-    <div className="border-2 border-foreground/15 bg-card p-4 text-center">
-      <Icon className="mx-auto h-4 w-4 text-accent" />
-      <p className="mt-2 font-display text-2xl font-bold tracking-tight">
+    <div
+      className={cn(
+        "border-2 border-foreground/15 bg-card p-4",
+        inline ? "flex items-center gap-3 sm:block sm:text-center" : "text-center",
+      )}
+    >
+      <Icon className={cn("h-4 w-4 shrink-0 text-accent", inline ? "sm:mx-auto" : "mx-auto")} />
+      <p className={cn("font-display text-2xl font-bold tracking-tight", inline ? "sm:mt-2" : "mt-2")}>
         {value}
       </p>
-      <p className="mt-0.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+      <p className={cn("font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground", inline ? "sm:mt-0.5" : "mt-0.5")}>
         {label}
       </p>
     </div>
@@ -205,18 +215,21 @@ export function Ambassador() {
 
       {/* Cumulative totals, only once there is something to total */}
       {(totals.participants > 0 || totals.signups > 0) && (
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-3">
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
           <StatBlock
+            inline
             icon={Users}
             value={fmt(totals.participants, totals.approx)}
             label="Total participants"
           />
           <StatBlock
+            inline
             icon={UserPlus}
             value={fmt(totals.signups, totals.approx)}
             label="Total sign ups"
           />
-          <StatBlock icon={Trophy} value={totals.events} label="Events run" />
+          <StatBlock
+            inline icon={Trophy} value={totals.events} label="Events run" />
         </div>
       )}
 

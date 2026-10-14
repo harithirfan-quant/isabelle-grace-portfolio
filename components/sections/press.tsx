@@ -30,6 +30,17 @@ function autoPreview(url: string) {
   )}?w=640&h=360`;
 }
 
+// Social posts sit behind a login wall: mShots answers them with a 403 or a
+// sign-in page, which showed as a broken thumbnail. Without a hand-picked
+// preview they get a branded tile instead.
+const LOGIN_WALLED: PressMention["type"][] = ["instagram", "facebook", "linkedin"];
+
+function previewFor(item: PressMention): string | null {
+  if (item.preview && item.preview.length) return item.preview;
+  if (!item.url || LOGIN_WALLED.includes(item.type)) return null;
+  return autoPreview(item.url);
+}
+
 export function Press() {
   return (
     <section id="press" className="container scroll-mt-20 py-24">
@@ -44,12 +55,9 @@ export function Press() {
         {press.map((item, i) => {
           const Icon = TYPE_ICON[item.type] ?? Globe;
           const hasUrl = Boolean(item.url);
-          const previewSrc =
-            item.preview && item.preview.length
-              ? item.preview
-              : autoPreview(item.url);
+          const previewSrc = previewFor(item);
 
-          const preview = hasUrl ? (
+          const preview = hasUrl && previewSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={previewSrc}

@@ -338,7 +338,8 @@ html .desk-window section {
     gap: 0.4rem;
   }
   .desk-tile {
-    width: 3.5rem;
+    /* 56px at 320, growing to 62px: "PROJECTS" overflowed a fixed 56px tile */
+    width: clamp(3.5rem, 15.5vw, 3.9rem);
     height: 3.6rem;
   }
   .desk-tile svg {
@@ -355,7 +356,7 @@ html .desk-window section {
     transform: translateX(-50%);
     font-size: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
     white-space: nowrap;
     pointer-events: none;
@@ -377,7 +378,9 @@ html .desk-window section {
 
 /* Phones only: the smallest metadata type (0.6-0.65rem) is the legibility
    floor on a 390px screen, so it is lifted to a readable 0.72rem. */
-@media (max-width: 640px) {
+/* Extended to 900px: below that the site already uses its stacked phone
+   layout, so tablets were showing 9.6-10.4px labels in that same layout. */
+@media (max-width: 900px) {
   html [class*="text-[0.6rem]"],
   html [class*="text-[0.65rem]"] {
     font-size: 0.72rem;
@@ -461,7 +464,7 @@ html .desk-window .no-scrollbar.snap-x {
   background: hsl(var(--accent));
   color: #fff;
   font-family: var(--font-mono), monospace;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.14em;

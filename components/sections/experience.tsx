@@ -70,7 +70,7 @@ export function Experience() {
         {resume.available && (
           <button
             onClick={openResume}
-            className="inline-flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-widest text-accent underline-offset-4 hover:underline"
+            className="inline-flex min-h-11 items-center gap-2 font-mono text-sm font-semibold uppercase lg:min-h-0 tracking-widest text-accent underline-offset-4 hover:underline"
           >
             <FileText className="h-4 w-4" />
             Full resume, updated {resume.lastUpdated}

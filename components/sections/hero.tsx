@@ -164,7 +164,7 @@ export function Hero() {
       <button
         onClick={() => scrollToSection("about")}
         aria-label="Scroll to about"
-        className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+        className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 p-3 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
       >
         Scroll
         <ArrowDown className="h-3.5 w-3.5" />

@@ -117,7 +117,10 @@ export function Contact() {
         description={contact.openTo}
       />
 
-      <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-2">
+      {/* [&>*]:min-w-0 lets each column shrink below its widest unbreakable
+          string (the email address), which otherwise pushed the whole column
+          past the window edge on phones. */}
+      <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-2 [&>*]:min-w-0">
         {/* Left: socials + info */}
         <div className="space-y-4">
           <Reveal>
@@ -140,7 +143,7 @@ export function Contact() {
           <Reveal delay={0.1}>
             <Card className="p-5">
               <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 flex-1 items-center gap-3">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-foreground/25 bg-secondary text-accent">
                     <Mail className="h-6 w-6" />
                   </div>

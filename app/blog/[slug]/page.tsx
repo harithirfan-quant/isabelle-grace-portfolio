@@ -46,7 +46,7 @@ export default function BlogPostPage({
       {/* Back link */}
       <Link
         href="/blog"
-        className="mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        className="mb-10 inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Blog
@@ -163,7 +163,7 @@ export default function BlogPostPage({
       <div className="mx-auto mt-10 max-w-2xl">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent hover:underline"
         >
           <ArrowLeft className="h-4 w-4" />
           View all posts

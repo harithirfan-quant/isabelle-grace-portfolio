@@ -193,7 +193,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
               key={d.id}
               type="button"
               onClick={() => jump(d.id)}
-              className="rounded-sm px-1 transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="-my-3 rounded-sm px-1 py-3 transition-colors hover:text-accent lg:my-0 lg:py-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {d.label}
             </button>
@@ -225,8 +225,11 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
                 type="button"
                 onClick={() => setClosed(true)}
                 aria-label="Close the portfolio window"
-                className="h-3.5 w-3.5 rounded-full border-[1.5px] border-foreground bg-accent transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="h-3.5 w-3.5 rounded-full border-[1.5px] border-foreground bg-accent transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent max-[900px]:hidden"
               />
+              {/* Phones: closing the whole site from a 14px dot was a trap, so the
+                  dot stays as decoration only, like its two neighbours. */}
+              <span aria-hidden className="hidden h-3.5 w-3.5 rounded-full border-[1.5px] border-foreground bg-accent max-[900px]:block" />
               <button
                 type="button"
                 onClick={() => setMinimised(true)}
