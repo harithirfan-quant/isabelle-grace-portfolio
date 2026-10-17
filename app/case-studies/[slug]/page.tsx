@@ -27,6 +27,8 @@ export async function generateMetadata({
       description: cs.subtitle,
       url: `${site.url}/case-studies/${cs.slug}`,
       type: "article",
+      // Setting openGraph here replaces the root one, so re-attach the share card.
+      images: ["/opengraph-image"],
     },
   };
 }

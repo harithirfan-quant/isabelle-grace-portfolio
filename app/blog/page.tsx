@@ -15,6 +15,8 @@ export const metadata: Metadata = {
       "Notes from training at Bintulu Port, MyNext ambassador sessions, and building a career in people operations.",
     url: `${site.url}/blog`,
     type: "website",
+    // Setting openGraph here replaces the root one, so re-attach the share card.
+    images: ["/opengraph-image"],
   },
 };
 
