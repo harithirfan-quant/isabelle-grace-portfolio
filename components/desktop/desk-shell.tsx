@@ -2,6 +2,11 @@
 
 import * as React from "react";
 import { InDeskWindowContext } from "@/components/desktop/scroll-root";
+import {
+  DesktopIcons,
+  ProjectWindows,
+  type ProjectDesktopState,
+} from "@/components/desktop/project-desktop";
 import { personal } from "@/content/portfolio";
 
 /**
@@ -100,6 +105,40 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
   const [maximised, setMaximised] = React.useState(false);
   const [active, setActive] = React.useState("about");
   const [clock, setClock] = React.useState("");
+  const [projectWins, setProjectWins] = React.useState<ProjectDesktopState>({
+    open: [],
+    stack: [],
+    front: "main",
+  });
+
+  /* Project windows opened from the desktop icons */
+  const focusProject = React.useCallback((title: string) => {
+    setProjectWins((w) =>
+      w.front === title && w.stack[w.stack.length - 1] === title
+        ? w
+        : { ...w, stack: [...w.stack.filter((t) => t !== title), title], front: title },
+    );
+  }, []);
+  const openProject = React.useCallback((title: string) => {
+    setProjectWins((w) => ({
+      open: w.open.includes(title) ? w.open : [...w.open, title],
+      stack: [...w.stack.filter((t) => t !== title), title],
+      front: title,
+    }));
+  }, []);
+  const closeProject = React.useCallback((title: string) => {
+    setProjectWins((w) => {
+      const stack = w.stack.filter((t) => t !== title);
+      return {
+        open: w.open.filter((t) => t !== title),
+        stack,
+        front: w.front === title ? (stack[stack.length - 1] ?? "main") : w.front,
+      };
+    });
+  }, []);
+  const focusMain = React.useCallback(() => {
+    setProjectWins((w) => (w.front === "main" ? w : { ...w, front: "main" }));
+  }, []);
   const [today, setToday] = React.useState("");
 
   /* Live menubar clock */
@@ -207,8 +246,13 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
 
       {/* ---------------- desk ---------------- */}
       <div className="relative flex min-h-0 flex-1 flex-col items-center px-4 pt-6 pb-28 max-[900px]:pb-24">
+        {/* project shortcuts on the wallpaper (wide screens only) */}
+        <DesktopIcons onOpen={openProject} />
+
         <div
-          className={`desk-window flex flex-col overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-[0_30px_70px_-20px_rgb(120_20_70/0.42)] transition-all duration-300 ${
+          onPointerDownCapture={focusMain}
+          style={{ zIndex: projectWins.front === "main" ? 50 : 10 }}
+          className={`desk-window relative flex flex-col overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-[0_30px_70px_-20px_rgb(120_20_70/0.42)] transition-all duration-300 ${
             maximised ? "w-[min(1320px,100%)]" : "w-[min(1060px,100%)]"
           } h-full max-[900px]:h-auto ${
             closed
@@ -259,6 +303,12 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
+        <ProjectWindows
+          state={projectWins}
+          onFocus={focusProject}
+          onClose={closeProject}
+        />
+
         {/* reopen card (window closed) */}
         {closed ? (
           <button
@@ -274,7 +324,7 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
         ) : null}
 
         {/* ---------------- dock ---------------- */}
-        <div className="mobile-dock absolute bottom-0 left-0 right-0 flex justify-center px-3 pb-3 max-[900px]:fixed max-[900px]:z-40">
+        <div className="mobile-dock absolute bottom-0 left-0 right-0 z-[60] flex justify-center px-3 pb-3 max-[900px]:fixed max-[900px]:z-40">
           <div
             className="mobile-dock-row no-scrollbar flex max-w-full gap-2.5 overflow-x-auto rounded-2xl border-2 border-foreground bg-white/90 p-2.5 shadow-[6px_7px_0_0_hsl(var(--foreground))] backdrop-blur"
             role="toolbar"

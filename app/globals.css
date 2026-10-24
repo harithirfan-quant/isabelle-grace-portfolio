@@ -177,6 +177,18 @@ html .desk-field {
   background-size: auto, auto, 72px 72px, 72px 72px, auto;
 }
 
+/* Project icons on the wallpaper. They need the strip beside the 1060px
+   portfolio window (about 110px a side), so they only show from 1300px up.
+   Narrower screens and phones use the Projects section instead. */
+.desk-icons {
+  display: none;
+}
+@media (min-width: 1300px) {
+  .desk-icons {
+    display: flex;
+  }
+}
+
 /* Faint paper tooth on the window surface so it does not read as flat white */
 html .desk-window {
   background-image: radial-gradient(circle at 1px 1px, hsl(240 6% 10% / 0.045) 1px, transparent 0);
