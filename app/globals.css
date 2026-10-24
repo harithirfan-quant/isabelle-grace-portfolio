@@ -177,7 +177,7 @@ html .desk-field {
   background-size: auto, auto, 72px 72px, 72px 72px, auto;
 }
 
-/* Project icons on the wallpaper. They need the strip beside the 1060px
+/* Project and achievement icons on the wallpaper. They need the strip beside the 1060px
    portfolio window (about 110px a side), so they only show from 1300px up.
    Narrower screens and phones use the Projects section instead. */
 .desk-icons {

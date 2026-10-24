@@ -4,8 +4,8 @@ import * as React from "react";
 import { InDeskWindowContext } from "@/components/desktop/scroll-root";
 import {
   DesktopIcons,
-  ProjectWindows,
-  type ProjectDesktopState,
+  DeskWindows,
+  type DeskWindowsState,
 } from "@/components/desktop/project-desktop";
 import { personal } from "@/content/portfolio";
 
@@ -105,39 +105,39 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
   const [maximised, setMaximised] = React.useState(false);
   const [active, setActive] = React.useState("about");
   const [clock, setClock] = React.useState("");
-  const [projectWins, setProjectWins] = React.useState<ProjectDesktopState>({
+  const [deskWins, setDeskWins] = React.useState<DeskWindowsState>({
     open: [],
     stack: [],
     front: "main",
   });
 
-  /* Project windows opened from the desktop icons */
-  const focusProject = React.useCallback((title: string) => {
-    setProjectWins((w) =>
-      w.front === title && w.stack[w.stack.length - 1] === title
+  /* Windows opened from the desktop icons (projects, achievements) */
+  const focusWindow = React.useCallback((id: string) => {
+    setDeskWins((w) =>
+      w.front === id && w.stack[w.stack.length - 1] === id
         ? w
-        : { ...w, stack: [...w.stack.filter((t) => t !== title), title], front: title },
+        : { ...w, stack: [...w.stack.filter((t) => t !== id), id], front: id },
     );
   }, []);
-  const openProject = React.useCallback((title: string) => {
-    setProjectWins((w) => ({
-      open: w.open.includes(title) ? w.open : [...w.open, title],
-      stack: [...w.stack.filter((t) => t !== title), title],
-      front: title,
+  const openWindow = React.useCallback((id: string) => {
+    setDeskWins((w) => ({
+      open: w.open.includes(id) ? w.open : [...w.open, id],
+      stack: [...w.stack.filter((t) => t !== id), id],
+      front: id,
     }));
   }, []);
-  const closeProject = React.useCallback((title: string) => {
-    setProjectWins((w) => {
-      const stack = w.stack.filter((t) => t !== title);
+  const closeWindow = React.useCallback((id: string) => {
+    setDeskWins((w) => {
+      const stack = w.stack.filter((t) => t !== id);
       return {
-        open: w.open.filter((t) => t !== title),
+        open: w.open.filter((t) => t !== id),
         stack,
-        front: w.front === title ? (stack[stack.length - 1] ?? "main") : w.front,
+        front: w.front === id ? (stack[stack.length - 1] ?? "main") : w.front,
       };
     });
   }, []);
   const focusMain = React.useCallback(() => {
-    setProjectWins((w) => (w.front === "main" ? w : { ...w, front: "main" }));
+    setDeskWins((w) => (w.front === "main" ? w : { ...w, front: "main" }));
   }, []);
   const [today, setToday] = React.useState("");
 
@@ -246,12 +246,12 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
 
       {/* ---------------- desk ---------------- */}
       <div className="relative flex min-h-0 flex-1 flex-col items-center px-4 pt-6 pb-28 max-[900px]:pb-24">
-        {/* project shortcuts on the wallpaper (wide screens only) */}
-        <DesktopIcons onOpen={openProject} />
+        {/* project and achievement shortcuts on the wallpaper (wide screens only) */}
+        <DesktopIcons onOpen={openWindow} />
 
         <div
           onPointerDownCapture={focusMain}
-          style={{ zIndex: projectWins.front === "main" ? 50 : 10 }}
+          style={{ zIndex: deskWins.front === "main" ? 50 : 10 }}
           className={`desk-window relative flex flex-col overflow-hidden rounded-2xl border-2 border-foreground bg-background shadow-[0_30px_70px_-20px_rgb(120_20_70/0.42)] transition-all duration-300 ${
             maximised ? "w-[min(1320px,100%)]" : "w-[min(1060px,100%)]"
           } h-full max-[900px]:h-auto ${
@@ -303,10 +303,11 @@ export function DeskShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <ProjectWindows
-          state={projectWins}
-          onFocus={focusProject}
-          onClose={closeProject}
+        <DeskWindows
+          state={deskWins}
+          onOpen={openWindow}
+          onFocus={focusWindow}
+          onClose={closeWindow}
         />
 
         {/* reopen card (window closed) */}
