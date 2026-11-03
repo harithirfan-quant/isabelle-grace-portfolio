@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Tag, Users, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { caseStudies, getCaseStudy, getRelatedCaseStudies } from "@/content/case-studies";
-import { site } from "@/content/portfolio";
+import { personal, site } from "@/content/portfolio";
+import { caseStudyJsonLd, toJsonLdScript } from "@/lib/structured-data";
 import { CaseStudyClient } from "@/components/case-study/case-study-client";
 
 export function generateStaticParams() {
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const cs = getCaseStudy(params.slug);
   if (!cs) return {};
   return {
-    title: `${cs.title}, Case Study | ${site.metaTitle}`,
+    title: `${cs.title}, Case Study | ${personal.fullName}`,
     description: cs.subtitle,
     alternates: { canonical: `${site.url}/case-studies/${cs.slug}` },
     openGraph: {
@@ -43,6 +44,7 @@ export default function CaseStudyPage({
 
   return (
     <main className="pb-24 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(caseStudyJsonLd(cs)) }} />
       <div className="container">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-muted-foreground">

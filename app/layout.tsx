@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteChrome } from "@/components/site-chrome";
 import { CommandPalette } from "@/components/command-palette";
 import { Toaster } from "sonner";
-import { personal, site, socials } from "@/content/portfolio";
+import { personal, site } from "@/content/portfolio";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const display = Space_Grotesk({
@@ -22,14 +22,17 @@ export const metadata: Metadata = {
   description: site.metaDescription,
   keywords: [
     "Isabelle Grace",
+    "Isabelle Grace Poly",
     "International Business",
-    "People Operations",
-    "Learning & Development",
-    "HRM",
     "UniMAP",
+    "Bintulu Port Scholar",
     "Bintulu Port",
-    "MyNext",
-    "Internship",
+    "enterprise risk management",
+    "learning and development",
+    "people operations",
+    "HRM",
+    "MyNext Campus Ambassador",
+    "Huawei Sales Elite Challenge",
     "Malaysia",
   ],
   authors: [{ name: personal.fullName }],
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     title: site.metaTitle,
     description: site.metaDescription,
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
 };
 
 export const viewport: Viewport = {
@@ -55,23 +58,6 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#ffb3d4" },
     { media: "(prefers-color-scheme: dark)", color: "#ffb3d4" },
   ],
-};
-
-// JSON-LD Person schema for rich SEO
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: personal.fullName,
-  alternateName: personal.preferredName,
-  email: `mailto:${personal.email}`,
-  jobTitle: personal.title,
-  url: site.url,
-  alumniOf: site.alumniOf.map((name) => ({
-    "@type": "CollegeOrUniversity",
-    name,
-  })),
-  knowsLanguage: personal.languages,
-  sameAs: [socials.linkedin, socials.instagram, socials.projectUrl],
 };
 
 export default function RootLayout({
@@ -88,10 +74,6 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-          />
           <SiteChrome>
             {children}
           </SiteChrome>
