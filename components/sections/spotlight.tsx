@@ -22,8 +22,8 @@ export function Spotlight() {
     <section id="spotlight" className="container scroll-mt-20 py-24">
       <SectionHeading
         index="02"
-        eyebrow="Currently"
-        title={`What I do as an ${aiInternship.role}`}
+        eyebrow="Industrial training"
+        title={`What I did as an ${aiInternship.role}`}
         description={aiInternship.blurb}
       />
 

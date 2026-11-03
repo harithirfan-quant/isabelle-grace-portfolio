@@ -11,7 +11,7 @@ import {
   trophyCase,
 } from "@/content/portfolio";
 import { blogPosts } from "@/content/blog";
-import { publicCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 
 /*
  * /llms.txt: a plain summary of this portfolio for AI assistants (ChatGPT,
@@ -64,7 +64,7 @@ export function GET() {
     "## Writing",
     "",
     ...blogPosts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.excerpt}`),
-    ...publicCaseStudies.map((c) => `- [Case study: ${c.title}](${site.url}/case-studies/${c.slug}): ${c.subtitle}`),
+    ...caseStudies.map((c) => `- [Case study: ${c.title}](${site.url}/case-studies/${c.slug}): ${c.subtitle}`),
     "",
     "## Skills",
     "",

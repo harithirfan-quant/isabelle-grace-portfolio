@@ -40,12 +40,6 @@ export type CaseStudy = {
   relatedSlugs: string[];
 };
 
-// Case studies that came over from Harith's portfolio and are not shown on
-// Isabelle's page. Their pages still build, but they stay out of the
-// Projects section, the sitemap, llms.txt and search results (noindex),
-// so nothing claims them as Isabelle's work.
-export const HIDDEN_CASE_STUDIES = new Set(["goexplore-program", "leaders-challenge"]);
-
 export const caseStudies: CaseStudy[] = [
   {
     slug: "trajectory",
@@ -112,7 +106,7 @@ export const caseStudies: CaseStudy[] = [
       "Multilingual UX",
       "WhatsApp delivery",
     ],
-    relatedSlugs: ["suriasnap", "leaders-challenge"],
+    relatedSlugs: ["suriasnap"],
   },
   {
     slug: "suriasnap",
@@ -166,125 +160,7 @@ export const caseStudies: CaseStudy[] = [
       "Simplicity as a decision tiebreaker produces better results than sophistication-seeking",
     ],
     tools: ["Next.js", "React", "Tailwind CSS", "Vercel", "Git", "GitHub"],
-    relatedSlugs: ["trajectory", "goexplore-program"],
-  },
-  {
-    slug: "goexplore-program",
-    projectSlug: "Bank Islam GoExplore Program",
-    title: "Bank Islam GoExplore Program",
-    subtitle: "Planning and executing an industry visit from inception to debrief for 20+ students",
-    category: "Event Planning & Leadership",
-    timeline: "2026",
-    role: "Team",
-    tags: ["Event Management", "Program Planning", "Stakeholder Management", "Leadership"],
-    overview:
-      "We planned and executed the GoExplore Program, an immersive industry visit bringing 20+ faculty students from UniMAP to Bank Islam's Kuala Lumpur headquarters. The program was designed to bridge the gap between classroom finance and real banking operations, giving students firsthand exposure to corporate banking environments.",
-    challenge: {
-      title: "The Challenge",
-      content: [
-        "The central challenge was coordinating across multiple organizations simultaneously: the university (approvals and logistics), Bank Islam (scheduling and access coordination), and 20+ individual students with different availability constraints and expectations.",
-        "Budget constraints meant the program had to be designed efficiently, transportation, scheduling, and communication all had to be planned with minimal margin for error.",
-        "Institutional approval chains at universities are longer than most event organizers anticipate. This nearly derailed the timeline on two separate occasions.",
-      ],
-    },
-    approach: {
-      title: "The Approach",
-      content: [
-        "We started with stakeholder mapping before touching any logistics. Who needed to approve what, in what order, with what lead time? That map became the backbone of the project timeline.",
-        "Communications were segmented deliberately: university administrators received formal documentation with institutional language. Students received practical, casual updates with clear action items. Bank Islam contacts received professional correspondence with specific asks and clear timelines.",
-        "We built 48-hour buffers into every critical approval stage after the first near-miss. That buffer absorbed the second documentation delay without impacting the visit date.",
-        "Post-visit, we ran a brief debrief session and collected structured feedback. That feedback directly shaped the report we submitted to Bank Islam, and will inform the next iteration of the program.",
-      ],
-    },
-    metrics: [
-      {
-        label: "Participants",
-        value: "20+",
-        description: "Faculty students from UniMAP",
-      },
-      {
-        label: "Completion Rate",
-        value: "100%",
-        description: "All registered participants completed the visit",
-      },
-      {
-        label: "Stakeholder Groups",
-        value: "3",
-        description: "University, Bank Islam, and student participants coordinated simultaneously",
-      },
-    ],
-    lessons: [
-      "Map institutional approval chains before building any timeline",
-      "Buffer time for approvals should be 2x what you think is sufficient",
-      "Segmenting communications by stakeholder type is more work upfront and much less work overall",
-      "Post-event debrief creates value for future iterations, build it into the design",
-    ],
-    tools: [
-      "Microsoft Excel (logistics tracking)",
-      "Email coordination",
-      "University systems",
-      "Documentation and reporting",
-    ],
-    relatedSlugs: ["suriasnap", "leaders-challenge"],
-  },
-  {
-    slug: "leaders-challenge",
-    projectSlug: "The Leaders Challenge",
-    title: "The Leaders Challenge Competition",
-    subtitle: "Placing 1st Runner Up at a national leadership competition: strategy, preparation, and performance",
-    category: "Competition & Strategy",
-    timeline: "Feb 2026",
-    role: "Team Member",
-    tags: ["Leadership", "Strategy", "Public Speaking", "Competition"],
-    overview:
-      "The Malaysian Leaders of Tomorrow Challenge is a national-level leadership competition drawing students from universities across Malaysia. Our team placed 1st Runner Up. This case study examines the preparation strategy, team dynamics, and decision-making process that shaped our performance, and what we'd do differently.",
-    challenge: {
-      title: "The Challenge",
-      content: [
-        "The competition brief demanded both analytical rigor and compelling communication. Teams were required to analyze a complex business or social challenge, develop a structured recommendation, and present it persuasively to a panel of industry judges.",
-        "The primary challenge was not the content, it was the pressure of high-stakes presentation to experienced practitioners who are paid to find weaknesses in arguments. Our team had to build a thesis that was both ambitious and defensible.",
-        "A secondary challenge was internal alignment. Three strong opinions on direction meant the first week of preparation was navigating disagreement without losing momentum.",
-      ],
-    },
-    approach: {
-      title: "The Approach",
-      content: [
-        "We spent the first session on one question only: what is the single sentence that captures our core argument? Until we had consensus on that sentence, no slides, no research framework, and no division of work was agreed on.",
-        "Once aligned, we divided the work not by section but by function, one person was responsible for the analytical core, one for narrative coherence, and one for the presentation layer. Each function had ownership and accountability.",
-        "We prepared specifically for adversarial Q&A. Every assumption in our recommendation was listed, and we challenged each other on the weakest ones. The questions we couldn't answer in practice were the ones we fortified in the final submission.",
-        "The communication layer received equal weight as the analytical layer. A well-argued thesis presented poorly loses to a decent thesis presented confidently. We rehearsed the presentation eleven times.",
-      ],
-    },
-    metrics: [
-      {
-        label: "Result",
-        value: "1st Runner Up",
-        description: "National level, competing against teams from universities across Malaysia",
-      },
-      {
-        label: "Rehearsals",
-        value: "11",
-        description: "Full run-throughs of the final presentation",
-      },
-      {
-        label: "Media Coverage",
-        value: "3 outlets",
-        description: "The Star, NKF Newsletter, UniMAP official page",
-      },
-    ],
-    lessons: [
-      "Alignment on the core thesis must come before any division of work",
-      "Preparing for adversarial Q&A reveals the weakest points in your argument",
-      "Communication quality is weighted as heavily as analytical quality in high-stakes settings",
-      "Strong team dynamics under pressure require explicit agreements, not assumed understanding",
-    ],
-    tools: [
-      "Research and analysis",
-      "PowerPoint / presentation design",
-      "Structured argumentation frameworks",
-      "Stakeholder Q&A simulation",
-    ],
-    relatedSlugs: ["trajectory", "goexplore-program"],
+    relatedSlugs: ["trajectory"],
   },
 ];
 
@@ -297,8 +173,5 @@ export function getRelatedCaseStudies(slug: string): CaseStudy[] {
   if (!current) return [];
   return current.relatedSlugs
     .map((s) => getCaseStudy(s))
-    .filter((cs): cs is CaseStudy => cs !== undefined && !HIDDEN_CASE_STUDIES.has(cs.slug));
+    .filter((cs): cs is CaseStudy => cs !== undefined);
 }
-
-/** The case studies that belong on Isabelle's site. */
-export const publicCaseStudies = caseStudies.filter((cs) => !HIDDEN_CASE_STUDIES.has(cs.slug));

@@ -35,7 +35,7 @@ export const personal = {
   title:
     "International Business Student | Open to Roles in Business, Strategy & Beyond",
   tagline:
-    "I study International Business at UniMAP and train at Bintulu Port.",
+    "I study International Business at UniMAP and completed my industrial training at Bintulu Port.",
   location: "Miri / Perlis, Malaysia",
   email: "isabellegraceworkspace@gmail.com",
   timezone: "MYT (GMT+8)",
@@ -74,7 +74,7 @@ export const resume = {
 
 export const navItems = [
   { id: "about", label: "About", primary: true },
-  { id: "spotlight", label: "Currently", primary: true },
+  { id: "spotlight", label: "Training", primary: true },
   { id: "press", label: "Featured In" },
   { id: "experience", label: "Experience", primary: true },
   { id: "ambassador", label: "Ambassador", primary: true },
@@ -113,7 +113,7 @@ export const hero = {
   tagline:
     "International Business Student | Open to Roles in Business, Strategy & Beyond",
   subtext:
-    "I study International Business at UniMAP and train at Bintulu Port.",
+    "I study International Business at UniMAP and completed my industrial training at Bintulu Port.",
   pills: [
     "Bintulu Port Scholar 2025",
     "MyNext Campus Ambassador",
@@ -145,7 +145,7 @@ export const about = {
     alt: "Isabelle Grace",
   },
   bio: [
-    "I study International Business at UniMAP. Outside class I run campus programmes and national competitions while training with Bintulu Port's Learning and Development team.",
+    "I study International Business at UniMAP. Outside class I run campus programmes and national competitions, and I completed my industrial training at Bintulu Port, first in Enterprise Risk Management and then in Learning and Development.",
     "I've co-hosted career readiness sessions that reached hundreds of students, represented MyNext on the ground at national-scale careers events, and earned a competitive port scholarship that put me inside a real HR division.",
     "I'm looking for a role where I'm embedded where the work actually happens: sitting with the people who run operations, turning real challenges into action, and owning the outcome from first question to final deliverable. The settings I'm drawn to are high-stakes and human, where what you build touches actual people on actual teams.",
   ],
@@ -215,7 +215,7 @@ export const experience = [
 ];
 
 /* ===========================================================================
- * AI / AUTOMATION INTERN SPOTLIGHT (CURRENTLY section)
+ * INDUSTRIAL TRAINING SPOTLIGHT (the "Industrial training" section)
  * ======================================================================== */
 
 export const aiInternship = {
