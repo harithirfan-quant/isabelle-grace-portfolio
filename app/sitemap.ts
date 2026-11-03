@@ -1,19 +1,20 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/portfolio";
 import { blogPosts } from "@/content/blog";
-import { caseStudies } from "@/content/case-studies";
+import { publicCaseStudies } from "@/content/case-studies";
+import { monthToIso } from "@/lib/structured-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${site.url}/blog/${post.slug}`,
-    lastModified: now,
+    lastModified: monthToIso(post.date) ?? now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
+  const caseStudyEntries: MetadataRoute.Sitemap = publicCaseStudies.map((cs) => ({
     url: `${site.url}/case-studies/${cs.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,

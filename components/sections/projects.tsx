@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { projects } from "@/content/portfolio";
-import { caseStudies, type CaseStudy } from "@/content/case-studies";
+import { caseStudies, publicCaseStudies, type CaseStudy } from "@/content/case-studies";
 import { links, openExternal } from "@/lib/actions";
 
 type Project = (typeof projects)[number];
@@ -144,10 +144,7 @@ export function Projects() {
   const featuredTitles = new Set(shown.map((p) => p.title));
 
   // Case studies that do not belong to a featured project show as small cards.
-  const hiddenFromProjects = new Set(["goexplore-program", "leaders-challenge"]);
-  const otherCaseStudies = caseStudies.filter(
-    (cs) => !featuredTitles.has(cs.projectSlug) && !hiddenFromProjects.has(cs.slug)
-  );
+  const otherCaseStudies = publicCaseStudies.filter((cs) => !featuredTitles.has(cs.projectSlug));
 
   return (
     <section id="projects" className="container scroll-mt-20 py-24">

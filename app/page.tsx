@@ -13,6 +13,13 @@ import { Press } from "@/components/sections/press";
 import { Projects } from "@/components/sections/projects";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/footer";
+import type { Metadata } from "next";
+import { homeJsonLd, toJsonLdScript } from "@/lib/structured-data";
+
+// The home page's own canonical URL. Blog and case study pages set theirs.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 /**
  * The homepage is a desktop scene: menubar, one window, dock. Every existing
@@ -25,6 +32,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <DeskShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(homeJsonLd) }} />
       <main>
         <Hero />
         <Wall />

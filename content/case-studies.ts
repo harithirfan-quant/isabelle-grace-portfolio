@@ -40,6 +40,12 @@ export type CaseStudy = {
   relatedSlugs: string[];
 };
 
+// Case studies that came over from Harith's portfolio and are not shown on
+// Isabelle's page. Their pages still build, but they stay out of the
+// Projects section, the sitemap, llms.txt and search results (noindex),
+// so nothing claims them as Isabelle's work.
+export const HIDDEN_CASE_STUDIES = new Set(["goexplore-program", "leaders-challenge"]);
+
 export const caseStudies: CaseStudy[] = [
   {
     slug: "trajectory",
@@ -291,5 +297,8 @@ export function getRelatedCaseStudies(slug: string): CaseStudy[] {
   if (!current) return [];
   return current.relatedSlugs
     .map((s) => getCaseStudy(s))
-    .filter((cs): cs is CaseStudy => cs !== undefined);
+    .filter((cs): cs is CaseStudy => cs !== undefined && !HIDDEN_CASE_STUDIES.has(cs.slug));
 }
+
+/** The case studies that belong on Isabelle's site. */
+export const publicCaseStudies = caseStudies.filter((cs) => !HIDDEN_CASE_STUDIES.has(cs.slug));

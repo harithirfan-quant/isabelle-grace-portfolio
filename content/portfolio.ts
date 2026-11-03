@@ -933,11 +933,11 @@ export const sectionNav = {
 
 export const site = {
   url: "https://isabelle.hietech.my",
-  metaTitle: "Isabelle Grace, International Business Student",
+  metaTitle: "Isabelle Grace Poly · International Business Student, UniMAP",
   ogTagline:
     "International Business Student | Open to Roles in Business, People Operations & L&D",
   metaDescription:
-    "Portfolio of Isabelle Grace, an International Business student at UniMAP. Bintulu Port Scholar. MyNext Campus Ambassador. Open to roles in business, L&D, and people operations.",
+    "Isabelle Grace: International Business student at UniMAP and Bintulu Port Scholar, trained in risk management and L&D. Open to roles in business and people operations.",
   alumniOf: ["Universiti Malaysia Perlis"],
   firstName: "Isabelle",
   lastName: "Grace",

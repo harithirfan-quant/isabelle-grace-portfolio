@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/content/blog";
 import { BlogGrid } from "@/components/blog/blog-grid";
-import { site } from "@/content/portfolio";
+import { personal, site } from "@/content/portfolio";
 
 export const metadata: Metadata = {
-  title: `Blog & Insights | ${site.metaTitle}`,
+  title: `Blog & Insights | ${personal.fullName}`,
   description:
     "Notes from training at Bintulu Port, MyNext ambassador sessions, and building a career in people operations.",
   alternates: { canonical: `${site.url}/blog` },
   openGraph: {
-    title: `Blog & Insights | ${site.metaTitle}`,
+    title: `Blog & Insights | ${personal.fullName}`,
     description:
       "Notes from training at Bintulu Port, MyNext ambassador sessions, and building a career in people operations.",
     url: `${site.url}/blog`,

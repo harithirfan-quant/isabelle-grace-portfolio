@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Tag, Users, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { caseStudies, getCaseStudy, getRelatedCaseStudies } from "@/content/case-studies";
-import { site } from "@/content/portfolio";
+import { HIDDEN_CASE_STUDIES, caseStudies, getCaseStudy, getRelatedCaseStudies } from "@/content/case-studies";
+import { personal, site } from "@/content/portfolio";
+import { caseStudyJsonLd, toJsonLdScript } from "@/lib/structured-data";
 import { CaseStudyClient } from "@/components/case-study/case-study-client";
 
 export function generateStaticParams() {
@@ -19,9 +20,11 @@ export async function generateMetadata({
   const cs = getCaseStudy(params.slug);
   if (!cs) return {};
   return {
-    title: `${cs.title}, Case Study | ${site.metaTitle}`,
+    title: `${cs.title}, Case Study | ${personal.fullName}`,
     description: cs.subtitle,
     alternates: { canonical: `${site.url}/case-studies/${cs.slug}` },
+    // Case studies carried over from another portfolio stay out of search
+    ...(HIDDEN_CASE_STUDIES.has(cs.slug) ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: cs.title,
       description: cs.subtitle,
@@ -43,6 +46,9 @@ export default function CaseStudyPage({
 
   return (
     <main className="pb-24 pt-32">
+      {!HIDDEN_CASE_STUDIES.has(cs.slug) && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(caseStudyJsonLd(cs)) }} />
+      )}
       <div className="container">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-muted-foreground">

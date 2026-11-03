@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/content/blog";
-import { site } from "@/content/portfolio";
+import { personal, site } from "@/content/portfolio";
+import { blogPostJsonLd, monthToIso, toJsonLdScript } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const post = getBlogPost(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} | ${site.metaTitle}`,
+    title: `${post.title} | ${personal.fullName}`,
     description: post.excerpt,
     alternates: { canonical: `${site.url}/blog/${post.slug}` },
     openGraph: {
@@ -26,7 +27,8 @@ export async function generateMetadata({
       description: post.excerpt,
       url: `${site.url}/blog/${post.slug}`,
       type: "article",
-      publishedTime: post.date,
+      publishedTime: monthToIso(post.date),
+      authors: [site.url],
     },
   };
 }
@@ -43,6 +45,7 @@ export default function BlogPostPage({
 
   return (
     <main className="container pb-24 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(blogPostJsonLd(post)) }} />
       {/* Back link */}
       <Link
         href="/blog"
